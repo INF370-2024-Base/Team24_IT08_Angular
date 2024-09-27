@@ -1,0 +1,71 @@
+<div class="booking-container">
+    <h2>Book a Room</h2>
+    
+    <form [formGroup]="bookingForm" (ngSubmit)="submitBooking()">
+      <div class="form-group">
+        <label for="name">First Name</label>
+        <input id="name" type="text" formControlName="name" placeholder="Enter your first name" />
+      </div>
+  
+      <div class="form-group">
+        <label for="surname">Last Name</label>
+        <input id="surname" type="text" formControlName="surname" placeholder="Enter your last name" />
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email" placeholder="Enter your email address" />
+      </div>
+  
+      <div class="form-group">
+        <label for="contactNumber">Contact Number</label>
+        <input id="contactNumber" type="text" formControlName="contactNumber" placeholder="Enter your contact number" />
+      </div>
+  
+      <div class="form-group">
+        <label for="checkIn">Check-In Date</label>
+        <input id="checkIn" type="date" formControlName="checkIn" />
+      </div>
+  
+      <div class="form-group">
+        <label for="checkOut">Check-Out Date</label>
+        <input id="checkOut" type="date" formControlName="checkOut" />
+      </div>
+  
+      <div class="form-group">
+        <label for="includeBreakfast">
+          <input id="includeBreakfast" type="checkbox" formControlName="includeBreakfast" />
+          Include Breakfast
+        </label>
+      </div>
+  
+      <div class="form-group">
+        <label for="promoCode">Promo Code (Optional)</label>
+        <input id="promoCode" type="text" formControlName="promoCode" placeholder="Enter promo code" />
+      </div>
+  
+      <div class="price-container">
+        <p>Total Price: <strong>{{ totalPrice | currency:'ZAR' }}</strong></p>
+      </div>
+  
+      <div class="form-group">
+        <button type="button" (click)="calculatePrice()" class="calculate-price-btn">Calculate Price</button>
+      </div>
+  
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+  
+      <div class="form-group">
+        <button type="submit" [disabled]="bookingForm.invalid" class="submit-btn">Submit Booking</button>
+      </div>
+    </form>
+  
+    <div *ngIf="bookingSuccess" class="booking-success">
+      <p>Booking successful! Your reference number is: {{ bookingReference }}</p>
+    </div>
+  </div>
+  <div>
+    <app-back-button></app-back-button>
+  </div>
+  
