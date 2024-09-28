@@ -1,0 +1,44 @@
+<form [formGroup]="roomForm" (ngSubmit)="onSave()">
+  <h1 mat-dialog-title>{{ roomForm.value.room_ID ? 'Update Room' : 'Add Room' }}</h1>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Room Name</mat-label>
+      <input matInput formControlName="name" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description" required></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Price</mat-label>
+      <input matInput type="number" formControlName="price" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Room Number</mat-label>
+      <input matInput formControlName="roomNumber" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Max Capacity</mat-label>
+      <input matInput type="number" formControlName="maxCapacity" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Image URL</mat-label>
+      <input matInput formControlName="imageUrl">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Amenities</mat-label>
+      <textarea matInput formControlName="amenities"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Room Type</mat-label>
+      <mat-select formControlName="roomTypeName" required>
+        <!-- Loop through roomTypes array and show each name -->
+        <mat-option *ngFor="let type of roomTypes" [value]="type.name">{{ type.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-button type="submit">Save</button>
+  </div>
+</form>

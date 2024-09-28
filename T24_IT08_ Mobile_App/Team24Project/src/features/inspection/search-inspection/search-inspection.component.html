@@ -1,0 +1,66 @@
+<div class="container">
+  <h1>Inspection Logs</h1>
+  <div class="filters">
+    <label for="searchName">Search Bar</label>
+    <input
+      id="searchName"
+      type="text"
+      placeholder="Search by Name"
+      [(ngModel)]="searchName"
+      required
+    />
+    <input type="date" [(ngModel)]="searchDate" />
+    <button (click)="search()">Search</button>
+    <button
+      type="button"
+      class="btn btn-link"
+      (click)="GoToCreateInspectionPage()"
+    >
+      Create A New Inspection Log
+    </button>
+    <button (click)="GenerateInspectionReport()">Generate Inspection Report</button>
+    <button (click)="goBack()">Back</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th (click)="sortProducts('name')">Name</th>
+        <th (click)="sortProducts('description')">Description</th>
+        <th (click)="sortProducts('dateCreated')">Date Created</th>
+        <th (click)="sortProducts('dateModified')">Date Modified</th>
+        <th (click)="sortProducts('inspection_Type_ID')">Inspection Type</th>
+        <th (click)="sortProducts('room_ID')">Room</th>
+        <th>Update/Deletion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let inspection of filteredInspections; even as isEven"
+        [class.even]="isEven"
+        [class.odd]="!isEven"
+      >
+        <td (click)="openChecklist(inspection)">{{ inspection.name }}</td>
+        <td>{{ inspection.description }}</td>
+        <td>{{ inspection.dateCreated | date : "short" }}</td>
+        <td>{{ inspection.dateModified | date : "short" }}</td>
+        <td>{{ getInspectionTypeName(inspection.inspection_Type_ID) }}</td>
+        <td>{{ getRoomName(inspection.room_ID) }}</td>
+        <td>
+          <button
+            class="btn update-btn"
+            (click)="updateInspection(inspection.inspection_ID)"
+          >
+            Update
+          </button>
+          <button
+            class="btn delete-btn"
+            (click)="deleteInspection(inspection.inspection_ID)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

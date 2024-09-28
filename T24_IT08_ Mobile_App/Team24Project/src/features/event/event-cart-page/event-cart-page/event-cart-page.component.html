@@ -1,0 +1,13 @@
+<div *ngIf="events.length === 0">
+  <p>No events in your cart.</p>
+</div>
+
+<div *ngFor="let event of events" class="event-card">
+  <h3>{{ event.name }}</h3>
+  <p>{{ event.description }}</p>
+  <p>Total Price: R{{ event.totalPrice }}</p>
+  <button (click)="MakePayment(event)" [disabled]="event['status'] === 'Paid'">
+    Make Payment
+  </button>
+  <p *ngIf="event['status'] === 'Paid'" class="paid-status">Status: Paid</p>
+</div>

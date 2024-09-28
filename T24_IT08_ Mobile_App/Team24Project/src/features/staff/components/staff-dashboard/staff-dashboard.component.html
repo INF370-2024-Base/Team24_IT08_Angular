@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>Staff Dashboard</h1>
+  <div class="side-nav left-nav">
+    <button (click)="navigateToPolicies()">Policies and Regulations</button>
+    <button (click)="navigateToCreateStaffProfile()">Create Staff Profile</button>
+    <button (click)="navigateToUpdateStaffProfile()">Update My Staff Profile</button>
+    <button (click)="navigateToEventBookings()">Event Bookings</button>
+    <button (click)="navigateToViewRoomTypes()">View Room Types</button>
+    <button (click)="navigateToViewRooms()">View Rooms</button>
+    <button (click)="NavigationToEvents()">Book An Event</button>
+  </div>
+  <div class="side-nav right-nav">
+    <button (click)="navigateToViewMyShift()">View My Shift</button>
+    <button (click)="navigateToSearchInspection()">Search My Inspection</button>
+    <button (click)="navigateToEventTypes()">View Event Types</button>
+    <button (click)="navigateToLAndF()">Lost And Found List</button>
+    <button (click)="navigateToViewHalls()">View Halls</button>
+    <button (click)="GenerateBookingsReport()">Generate Bookings Report</button>
+  </div>
+  
+  
+  <!-- <div class="content">
+    <div #chartContainer style="width: 60%; height: 400px;">
+      <canvas
+        baseChart
+        [data]="{
+          labels: pieChartLabels,
+          datasets: pieChartDataset
+        }"
+        [type]="'pie'"
+        [options]="pieChartOptions"
+        [plugins]="pieChartPlugins"
+        [legend]="pieChartLegend">
+      </canvas>
+    </div>
+    <button (click)="downloadChart()">Download Chart</button>
+  </div> -->
+</div>

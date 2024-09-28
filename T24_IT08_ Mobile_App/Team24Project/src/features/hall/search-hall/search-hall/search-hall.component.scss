@@ -1,0 +1,70 @@
+.container {
+  background-color: #f5f5dc; /* Light beige background */
+  color: #5a3a29; /* Dark brown text */
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: auto;
+}
+
+h1 {
+  color: #6a4b3a;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #6a4b3a;
+  border-radius: 4px;
+  background-color: #e6dcb4; /* Light beige for input fields */
+  color: #3a2c1e; /* Dark brown text */
+}
+
+button {
+  background-color: #f5c542;
+  color: #3a2c1e;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #f4b927;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+th, td {
+  border: 1px solid #6a4b3a;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f5c542;
+  color: #3a2c1e;
+}
+
+tr:nth-child(even) {
+  background-color: #e6dcb4;
+}
+
+tr:nth-child(odd) {
+  background-color: #f5f5dc;
+}
+
+tr:hover {
+  background-color: #d5b77e;
+}

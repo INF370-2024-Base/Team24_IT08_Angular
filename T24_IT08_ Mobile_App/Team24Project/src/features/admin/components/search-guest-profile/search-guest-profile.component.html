@@ -1,0 +1,35 @@
+<div class="search-container">
+    <h1>Search Guest Profiles</h1>
+    <input type="text" placeholder="Search..." (input)="onSearch($event)" />
+    
+    <table>
+      
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Date of Birth</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let guest of filteredGuests">
+          <td>{{ guest.name}}</td>
+          <td>{{ guest.guest_Surname }}</td>
+          <td>{{ guest.guest_Email }}</td>
+          <td>{{ guest.guest_PhoneNo }}</td>
+          <td>{{ guest.dob | date }}</td>
+          <td>{{ guest.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    <div class="button">
+      <button mat-button (click)="GenerateGuestReport()">Generate Guest Report</button>
+      <button mat-button (click)="goBack()">Back</button>
+    </div>
+ 
+  
+  

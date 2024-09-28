@@ -1,0 +1,33 @@
+
+<div>
+    <h3>Payment Preferences</h3>
+    <button mat-button (click)="editCardInfo()">Edit</button>
+  </div>
+  <div *ngIf="isEditing" class="pay-form">
+    <mat-form-field class="full-width">
+      <mat-label>Card Name</mat-label>
+      <input matInput [(ngModel)]="cardInfo.cardName">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Card Number</mat-label>
+      <input matInput [(ngModel)]="cardInfo.cardNumber">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Expiration Month</mat-label>
+      <mat-select [(ngModel)]="cardInfo.expirationMonth">
+        <mat-option *ngFor="let month of months" [value]="month">{{month}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Expiration Year</mat-label>
+      <mat-select [(ngModel)]="cardInfo.expirationYear">
+        <mat-option *ngFor="let year of years" [value]="year">{{year}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>CVV</mat-label>
+      <input matInput [(ngModel)]="cardInfo.cvv" type="password">
+    </mat-form-field>
+    <button mat-button (click)="saveCardInfo()">Save</button>
+    <button mat-button (click)="cancelEdit()">Cancel</button>
+  </div>

@@ -1,0 +1,43 @@
+.container {
+  background-color: #f5f5dc;
+  color: #5a3a29;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+h1 {
+  color: #6a4b3a;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: auto;
+}
+
+thead {
+  background-color: #f5c542;
+}
+
+th, td {
+  border: 1px solid #6a4b3a;
+  padding: 10px;
+  text-align: center;
+}
+
+button {
+  background-color: #f5c542;
+  color: #3a2c1e;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #f4b927;
+}

@@ -1,0 +1,39 @@
+<div class="container">
+  <h1>Lost And Found</h1>
+  <div class="search-bar">
+    <input
+      type="text"
+      placeholder="Search Lost And Found Items"
+      [(ngModel)]="searchTerm"
+      (input)="filterItems()"
+    />
+    <button (click)="logLostAndFoundItem()">Log Lost And Found Item</button>
+    <button (click)="generateReport()">Generate Report</button>
+    <button (click)="goBack()">Back</button>
+
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Date Created</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of filteredItems">
+        <td>{{ item.name }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.dateCreated | date : "shortDate" }}</td>
+        <td>{{ getStatusName(item.l_And_F_Status_ID) }}</td>
+        <td>
+          <button class="update-btn" (click)="updateItem(item.lost_And_Found_ID)">Update</button>
+          <button class="delete-btn" (click)="deleteItem(item.lost_And_Found_ID)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

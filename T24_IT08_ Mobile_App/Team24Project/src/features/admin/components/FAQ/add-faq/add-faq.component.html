@@ -1,0 +1,64 @@
+<div class="container">
+  <h1>Add FAQ</h1>
+
+  <div class="row">
+    <div class="col-6">
+      <mat-card>
+        <mat-card-title>Add FAQ</mat-card-title>
+        <mat-card-content>
+          <form #form="ngForm" (ngSubmit)="CreateFAQ()" novalidate>
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Question</mat-label>
+              <input matInput type="text" id="question" name="question" [(ngModel)]="addFAQ.question" required #questionField="ngModel">
+              <mat-error *ngIf="questionField.invalid && questionField.touched">Question is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Answer</mat-label>
+              <input matInput type="text" id="answer" name="answer" [(ngModel)]="addFAQ.answer" required #answerField="ngModel">
+              <mat-error *ngIf="answerField.invalid && answerField.touched">Answer is required</mat-error>
+            </mat-form-field>
+
+            <!-- Category Dropdown -->
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Category</mat-label>
+              <mat-select [(ngModel)]="addFAQ.category" name="category">
+                <mat-option value="General">General</mat-option>
+                <mat-option value="Booking">Booking</mat-option>
+                <mat-option value="Check-in">Check-in</mat-option>
+                <mat-option value="Check-out">Check-out</mat-option>
+                <mat-option value="Navigation">Navigation</mat-option>
+                <mat-option value="Refund">Refund</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <!-- Upload Video -->
+            <div class="full-width upload-section">
+              <label for="videoUpload">Upload Video:</label>
+              <input type="file" id="videoUpload" (change)="onFileSelected($event)">
+              <button mat-raised-button color="primary" (click)="onUpload()" [disabled]="!selectedFile || isUploading">
+                Upload
+              </button>
+            </div>
+
+            <!-- Select Video URL -->
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Video URL</mat-label>
+              <mat-select [(ngModel)]="addFAQ.videoUrl" name="videoUrl">
+                <mat-option *ngFor="let video of videos" [value]="video.filePath">
+                  {{ video.filePath }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <div class="button-group">
+              <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid || isUploading">Add</button>
+              <button mat-button (click)="cancel()">Back</button>
+              <button mat-raised-button color="warn" type="button" (click)="cancel()">Cancel</button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

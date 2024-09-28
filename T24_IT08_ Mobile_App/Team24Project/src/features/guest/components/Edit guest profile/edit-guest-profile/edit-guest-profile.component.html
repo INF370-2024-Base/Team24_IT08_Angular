@@ -1,0 +1,58 @@
+<form [formGroup]="editGuestForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name" required>
+    <div *ngIf="editGuestForm.get('name')?.touched && editGuestForm.get('name')?.invalid">
+      <small *ngIf="editGuestForm.get('name')?.errors?.['required']">Name is required.</small>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="guest_Surname">Surname:</label>
+    <input id="guest_Surname" formControlName="guest_Surname" required>
+    <div *ngIf="editGuestForm.get('guest_Surname')?.touched && editGuestForm.get('guest_Surname')?.invalid">
+      <small *ngIf="editGuestForm.get('guest_Surname')?.errors?.['required']">Surname is required.</small>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="guest_Email">Email:</label>
+    <input id="guest_Email" formControlName="guest_Email" type="email" required>
+    <div *ngIf="editGuestForm.get('guest_Email')?.touched && editGuestForm.get('guest_Email')?.invalid">
+      <small *ngIf="editGuestForm.get('guest_Email')?.errors?.['required']">Email is required.</small>
+      <small *ngIf="editGuestForm.get('guest_Email')?.errors?.['email']">Invalid email format.</small>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="guest_PhoneNo">Phone Number:</label>
+    <input id="guest_PhoneNo" formControlName="guest_PhoneNo" type="tel" required>
+    <div *ngIf="editGuestForm.get('guest_PhoneNo')?.touched && editGuestForm.get('guest_PhoneNo')?.invalid">
+      <small *ngIf="editGuestForm.get('guest_PhoneNo')?.errors?.['required']">Phone number is required.</small>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="dob">Date of Birth:</label>
+    <p-calendar id="dob" formControlName="dob" [maxDate]="maxDate"></p-calendar>
+    <div *ngIf="editGuestForm.get('dob')?.touched && editGuestForm.get('dob')?.invalid">
+      <small *ngIf="editGuestForm.get('dob')?.errors?.['required']">Date of Birth is required.</small>
+      <small *ngIf="editGuestForm.get('dob')?.errors?.['max']">Date of Birth cannot be in the future.</small>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="userId">Username:</label>
+    <select id="userId" formControlName="userId" required>
+      <option *ngFor="let user of users" [value]="user.id">
+        {{ user.userName }}
+      </option>
+    </select>
+    <div *ngIf="editGuestForm.get('userId')?.touched && editGuestForm.get('userId')?.invalid">
+      <small *ngIf="editGuestForm.get('userId')?.errors?.['required']">Username is required.</small>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="description">Description:</label>
+    <input id="description" formControlName="description" required>
+    <div *ngIf="editGuestForm.get('description')?.touched && editGuestForm.get('description')?.invalid">
+      <small *ngIf="editGuestForm.get('description')?.errors?.['required']">Description is required.</small>
+    </div>
+  </div>
+  <button type="submit">Update Guest</button>
+</form>

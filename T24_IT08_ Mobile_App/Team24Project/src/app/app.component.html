@@ -1,0 +1,56 @@
+<header>
+  <div class="header-container">
+    <img src="assets/sfg_logo.png" alt="SFG Logo" class="logo">
+    <ul class="nav-list">
+      <li><a [routerLink]="'/home'">Home</a></li>
+      <li><a [routerLink]="'/about-us'">About Us</a></li>
+      <li><a [routerLink]="'/gallery'">Gallery</a></li>
+      <li><a [routerLink]="'/contact'">Contact Us</a></li>
+      <li><a [routerLink]="'/availability'">Book Now</a></li>
+  <!-- Login button is shown when user is NOT logged in -->
+  <li *ngIf="!isLoggedIn"><a [routerLink]="'/login'">Login</a></li>
+  <!-- Logout button is shown when user IS logged in -->
+  <li *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>
+    </ul>
+  </div>
+</header>
+
+<nav>
+  <div class="custom-sidenav-container">
+    <div class="custom-sidenav" *ngIf="isLoggedIn">
+      <ul class="custom-nav-list">
+        <li><a [routerLink]="'/login'">Login</a></li>
+        <li><a [routerLink]="'/forgot-password'">Forgot Password</a></li>
+        <li><a [routerLink]="'/register'">Register</a></li>
+        <!-- <li><a (click)="logout()">Logout</a></li> -->
+      </ul>
+    </div>
+    <div class="custom-content-container">
+      <div class="custom-router-outlet">
+        <router-outlet></router-outlet>
+        <app-chat-support></app-chat-support>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>Directions</h3>
+      <p>Sunflower Guesthouse, Vaal, South Africa</p>
+      <p>Call Us: +27 12 345 6789</p>
+    </div>
+    <div class="footer-section">
+      <h3>Quick Menu</h3>
+      <ul class="footer-nav-list">
+        <li><a [routerLink]="'/home'">Home</a></li>
+        <li><a [routerLink]="'/about-us'">About Us</a></li>
+        <li><a [routerLink]="'/gallery'">Gallery</a></li>
+        <li><a [routerLink]="'/contact-us'">Contact Us</a></li>
+        <li><a [routerLink]="'/book-now'">Book Now</a></li>
+        <li><a [routerLink]="'/faq'">Need Help?</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>

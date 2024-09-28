@@ -1,0 +1,32 @@
+<div class="audit-log-container">
+  <h2>Audit Logs</h2>
+  <button (click)="deleteOldLogs()" class="btn-delete-old-logs">Delete Logs Older Than One Year</button>
+  <button (click)="goBack()">Back</button>
+  <div class="search-container">
+    <input [(ngModel)]="search.id" placeholder="Search by ID" />
+    <input [(ngModel)]="search.action" placeholder="Search by Action" />
+    <input [(ngModel)]="search.userName" placeholder="Search by User Name" />
+    <input [(ngModel)]="search.timestamp" placeholder="Search by Timestamp" />
+    <input [(ngModel)]="search.details" placeholder="Search by Details" />
+  </div>
+  <table class="audit-log-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Action</th>
+        <th>User Name</th>
+        <th>Timestamp</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let log of filteredAuditLogs()">
+        <td>{{ log.id }}</td>
+        <td>{{ log.action }}</td>
+        <td>{{ log.userName }}</td>
+        <td>{{ log.timestamp | date: 'short' }}</td>
+        <td>{{ log.details }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

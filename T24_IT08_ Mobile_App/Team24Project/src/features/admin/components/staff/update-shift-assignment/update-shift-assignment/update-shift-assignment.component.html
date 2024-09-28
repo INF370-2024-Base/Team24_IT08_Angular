@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Shift Reassignment Requests</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Staff Shift ID</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let request of reassignmentRequests">
+        <td>{{ request.staff_Shift_ID }}</td>
+        <td>{{ request.description }}</td>
+        <td>
+          <button (click)="approveRequest(request)">Approve</button>
+          <button (click)="denyRequest(request)">Deny</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="goBack()">Back</button>
+</div>

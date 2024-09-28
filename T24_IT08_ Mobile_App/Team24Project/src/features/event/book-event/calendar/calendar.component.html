@@ -1,0 +1,28 @@
+<div class="calendar-container">
+      <div class="year-navigation">
+      <button (click)="changeYear(-1)">Previous Year</button>
+      <span>{{ currentYear }}</span>
+      <button (click)="changeYear(1)">Next Year</button>
+    </div>
+  <table class="calendar-table">
+    <thead>
+      <tr>
+        <th *ngFor="let day of days">{{ day }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let month of calendar">
+        <tr class="month-header">
+          <td colspan="7">{{ month.name }}</td>
+        </tr>
+        <tr *ngFor="let week of month.weeks">
+          <td *ngFor="let day of week">
+            <span [class.unavailable]="isUnavailable(day)" class="calendar-day">
+              {{ day.getDate() }}
+            </span>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

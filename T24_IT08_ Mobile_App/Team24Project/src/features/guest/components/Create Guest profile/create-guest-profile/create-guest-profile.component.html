@@ -1,0 +1,54 @@
+<div class="container">
+  <h1 class="heading">Guest Profile</h1>
+  <form [formGroup]="addGuestForm" (ngSubmit)="onSubmit()">
+    <p class="greeting">Hello {{name}} {{guest_Surname}}, welcome to Sunflower Guesthouse!</p>
+    
+    <div class="form-group" [ngClass]="{'has-error': isFieldInvalid('name')}">
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name" required>
+      <div *ngIf="isFieldInvalid('name')" class="error-message">Name is required.</div>
+    </div>
+    
+    <div class="form-group" [ngClass]="{'has-error': isFieldInvalid('guest_Surname')}">
+      <label for="guest_Surname">Surname:</label>
+      <input id="guest_Surname" formControlName="guest_Surname" required>
+      <div *ngIf="isFieldInvalid('guest_Surname')" class="error-message">Surname is required.</div>
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-error': isFieldInvalid('guest_Email')}">
+      <label for="guest_Email">Email:</label>
+      <input id="guest_Email" formControlName="guest_Email" type="email" required>
+      <div *ngIf="isFieldInvalid('guest_Email')" class="error-message">Valid email is required.</div>
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-error': isFieldInvalid('guest_PhoneNo')}">
+      <label for="guest_PhoneNo">Phone Number:</label>
+      <input id="guest_PhoneNo" formControlName="guest_PhoneNo" type="tel" required>
+      <div *ngIf="isFieldInvalid('guest_PhoneNo')" class="error-message">Phone number is required and should be 10 digits.</div>
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-error': isFieldInvalid('dob')}">
+      <label for="dob">Date of Birth:</label>
+      <p-calendar id="dob" formControlName="dob" [maxDate]="maxDate"></p-calendar>
+      <div *ngIf="isFieldInvalid('dob')" class="error-message">Date of Birth is required.</div>
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-error': isFieldInvalid('userId')}">
+      <label for="userId">Username:</label>
+      <select id="userId" formControlName="userId" required>
+        <option *ngFor="let user of users" [value]="user.id">
+          {{ user.userName }}
+        </option>
+      </select>
+      <div *ngIf="isFieldInvalid('userId')" class="error-message">Username is required.</div>
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-error': isFieldInvalid('description')}">
+      <label for="description">Description:</label>
+      <input id="description" formControlName="description" required>
+      <div *ngIf="isFieldInvalid('description')" class="error-message">Description is required.</div>
+    </div>
+    
+    <button type="submit">Add Guest</button>
+  </form>
+</div>

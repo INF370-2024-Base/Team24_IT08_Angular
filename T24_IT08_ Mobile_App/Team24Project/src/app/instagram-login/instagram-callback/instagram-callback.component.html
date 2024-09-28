@@ -1,0 +1,20 @@
+<!-- instagram-callback.component.html -->
+<div *ngIf="userProfile" class="profile-section">
+  <h1>Welcome, {{ userProfile.username }}</h1>
+  <!-- Profile Picture can be re-enabled if API issues are resolved -->
+  <!-- <img [src]="userProfile.profile_picture_url" alt="{{ userProfile.username }}'s profile picture"> -->
+</div>
+
+<div *ngIf="userMedia.length > 0" class="media-gallery">
+  <h2>Latest Posts</h2>
+  <div class="media-grid">
+    <div *ngFor="let media of userMedia" class="media-item">
+      <img *ngIf="media.media_type === 'IMAGE' || media.media_type === 'CAROUSEL_ALBUM'"
+           [src]="media.media_url" [alt]="media.caption">
+      <video *ngIf="media.media_type === 'VIDEO'" controls [src]="media.media_url"></video>
+      <p class="caption">{{ media.caption }}</p>
+      <button (click)="toggleLike(media.id)" [class.liked]="media.likedByUser">
+        Like
+      </button>
+    </div>
+</div>

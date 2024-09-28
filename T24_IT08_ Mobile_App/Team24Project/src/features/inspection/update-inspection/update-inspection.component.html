@@ -1,0 +1,127 @@
+<div class="container" *ngIf="inspection">
+  <h1>Update Inspection Log</h1>
+  <form (ngSubmit)="updateInspection()" #updateForm="ngForm">
+    <div>
+      <label for="name">Name:</label>
+      <input
+        id="name"
+        [(ngModel)]="inspection.name"
+        name="name"
+        required
+        #name="ngModel"
+      />
+      <div class="error-message" *ngIf="name.invalid && name.touched">
+        Name is required
+      </div>
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <input
+        id="description"
+        [(ngModel)]="inspection.description"
+        name="description"
+        required
+        #description="ngModel"
+      />
+      <div
+        class="error-message"
+        *ngIf="description.invalid && description.touched"
+      >
+        Description is required
+      </div>
+    </div>
+    <div>
+      <label for="inspection_Status">Inspection Status:</label>
+      <input
+        id="inspection_Status"
+        [(ngModel)]="inspection.inspection_Status_ID"
+        name="inspection_Status"
+        required
+        #inspection_Status="ngModel"
+      />
+      <div
+        class="error-message"
+        *ngIf="inspection_Status.invalid && inspection_Status.touched"
+      >
+        Inspection Status is required
+      </div>
+    </div>
+    <div>
+      <label for="inspection_Type_ID">Inspection Type:</label>
+      <select
+        id="inspection_Type_ID"
+        [(ngModel)]="inspection.inspection_Type_ID"
+        name="inspection_Type_ID"
+        required
+        #inspection_Type_ID="ngModel"
+      >
+        <option
+          *ngFor="let type of inspectionTypes"
+          [value]="type.inspection_Type_ID"
+        >
+          {{ type.name }}
+        </option>
+      </select>
+      <div
+        class="error-message"
+        *ngIf="inspection_Type_ID.invalid && inspection_Type_ID.touched"
+      >
+        Inspection Type is required
+      </div>
+    </div>
+    <div>
+      <label for="room_ID">Room:</label>
+      <select
+        id="room_ID"
+        [(ngModel)]="inspection.room_ID"
+        name="room_ID"
+        required
+        #room_ID="ngModel"
+      >
+        <option *ngFor="let room of rooms" [value]="room.room_ID">
+          {{ room.name }}
+        </option>
+      </select>
+      <div class="error-message" *ngIf="room_ID.invalid && room_ID.touched">
+        Room is required
+      </div>
+    </div>
+    <div>
+      <label for="staffId">Staff:</label>
+      <select
+        id="staffId"
+        [(ngModel)]="inspection.staffId"
+        name="staffId"
+        required
+        #staffId="ngModel"
+      >
+        <option *ngFor="let staff of staffMembers" [value]="staff.staffId">
+          {{ staff.name }}
+        </option>
+      </select>
+      <div class="error-message" *ngIf="staffId.invalid && staffId.touched">
+        Staff is required
+      </div>
+    </div>
+    <div>
+      <label for="userId">User:</label>
+      <select
+        id="userId"
+        [(ngModel)]="selectedUserId"
+        name="userId"
+        required
+        #userId="ngModel"
+      >
+        <option *ngFor="let user of users" [value]="user.id">
+          {{ user.userName }}
+        </option>
+      </select>
+      <div class="error-message" *ngIf="userId.invalid && userId.touched">
+        User is required
+      </div>
+    </div>
+    <button type="submit" [disabled]="updateForm.invalid">
+      Update Inspection
+    </button>
+  </form>
+</div>

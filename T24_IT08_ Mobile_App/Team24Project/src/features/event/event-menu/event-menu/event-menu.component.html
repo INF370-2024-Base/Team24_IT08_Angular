@@ -1,0 +1,26 @@
+<div class="event-menu-container">
+  <h2>Booking Phase 2: Event Menu</h2>
+  <div *ngIf="eventMenu" class="menu-details">
+    <h3 class="menu-title">{{ eventMenu.name }}</h3>
+    <p class="menu-description">{{ eventMenu.description }}</p>
+    <ul class="menu-items">
+      <li *ngFor="let item of eventMenuItems" class="menu-item">
+        <span class="item-name">{{ item.name }}</span>
+        <span class="item-price">R{{ item.price }}</span>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="eventBookingItems.length > 0" class="selected-items">
+    <h4>Selected Event Items</h4>
+    <ul class="selected-items-list">
+      <li *ngFor="let item of eventBookingItems" class="selected-item">
+        <span class="item-name">{{ item.name }} (x{{ item.quantity }})</span>
+        <span class="item-price">{{ item.price }} R</span>
+      </li>
+    </ul>
+  </div>
+
+  <button (click)="onSubmit()" class="submit-button">Submit Event Menu</button>
+  <button type="button" (click)="goBack()">Back</button>
+</div>

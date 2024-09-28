@@ -1,0 +1,117 @@
+<div class="container">
+  <h1>Create Lost And Found Item</h1>
+  <form (ngSubmit)="onSubmit()" #updateForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        [(ngModel)]="lostAndFound.name"
+        name="name"
+        #name="ngModel"
+        required
+      />
+      <div
+        *ngIf="name.invalid && (name.dirty || name.touched)"
+        class="text-danger"
+      >
+        Name is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input
+        type="text"
+        id="description"
+        class="form-control"
+        [(ngModel)]="lostAndFound.description"
+        name="description"
+        #description="ngModel"
+        required
+      />
+      <div
+        *ngIf="
+          description.invalid && (description.dirty || description.touched)
+        "
+        class="text-danger"
+      >
+        Description is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select
+        id="status"
+        class="form-control"
+        [(ngModel)]="lostAndFound.l_And_F_Status_ID"
+        name="status"
+        #status="ngModel"
+        required
+      >
+        <option [ngValue]="null">--Select Status--</option>
+        <option
+          *ngFor="let status of statuses"
+          [value]="status.l_And_F_Status_ID"
+        >
+          {{ status.name }}
+        </option>
+      </select>
+      <div
+        *ngIf="status.invalid && (status.dirty || status.touched)"
+        class="text-danger"
+      >
+        Status is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="staff">Staff Member</label>
+      <select
+        id="staff"
+        class="form-control"
+        [(ngModel)]="lostAndFound.staffId"
+        name="staff"
+        #staff="ngModel"
+        required
+      >
+        <option [ngValue]="null">--Select Staff Members--</option>
+        <option *ngFor="let staff of staffMembers" [value]="staff.staffId">
+          {{ staff.name }}
+        </option>
+      </select>
+      <div
+        *ngIf="staff.invalid && (staff.dirty || staff.touched)"
+        class="text-danger"
+      >
+        Staff Member is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="booking">Booking</label>
+      <select
+        id="booking"
+        class="form-control"
+        [(ngModel)]="lostAndFound.bookingID"
+        name="booking"
+        #booking="ngModel"
+        required
+      >
+        <option [ngValue]="null">--Select Bookings--</option>
+        <option *ngFor="let booking of bookings" [value]="booking.bookingID">
+          {{ booking.bookingID }}
+        </option>
+      </select>
+
+      <div
+        *ngIf="booking.invalid && (booking.dirty || booking.touched)"
+        class="text-danger"
+      >
+        Booking is Required
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+</div>

@@ -1,0 +1,10 @@
+<!-- policy-detail-dialog.component.html -->
+<h1 mat-dialog-title>Policy Details</h1>
+<div mat-dialog-content>
+  <p><strong>Name:</strong> {{ data.name }}</p>
+  <p><strong>Description:</strong> {{ data.description }}</p>
+  <p><strong>Date Created:</strong> {{ data.dateCreated | date }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</div>

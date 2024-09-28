@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Create New Event Menu Item</h2>
+  
+    <form (ngSubmit)="createEventMenuItem()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="eventMenuItem.name" name="name" class="form-control" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" [(ngModel)]="eventMenuItem.description" name="description" class="form-control" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="number" [(ngModel)]="eventMenuItem.price" name="price" class="form-control" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="eventMenu">Event Menu</label>
+        <select [(ngModel)]="eventMenuItem.eventMenuID" name="eventMenuID" class="form-control" required>
+          <option *ngFor="let menu of eventMenus" [value]="menu.eventMenuID">{{ menu.name }}</option>
+        </select>
+      </div>
+  
+      <button type="submit" class="btn btn-success">Create</button>
+    </form>
+  </div>
+  

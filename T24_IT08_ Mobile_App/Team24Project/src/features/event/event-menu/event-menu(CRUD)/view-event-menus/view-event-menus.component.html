@@ -1,0 +1,29 @@
+<div class="container event-menus">
+  <h1>Event Menus</h1>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let menu of eventMenus">
+          <td>{{ menu.name }}</td>
+          <td>{{ menu.description }}</td>
+          <td>{{ menu.price | currency:'ZAR' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="actions">
+    <button (click)="downloadDocument()">Download</button>
+    <input type="file" (change)="importDocument($event)" accept=".doc,.docx" />
+    <button (click)="saveChanges()">Save</button>
+    <button (click)="goBack()">Back</button>
+  </div>
+</div>

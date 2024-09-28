@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>Create Policy or Regulation</h1>
+  <form (ngSubmit)="createPolicyAndRegulation()" #createForm="ngForm">
+    <div>
+      <label for="name">Name:</label>
+      <input
+        id="name"
+        [(ngModel)]="policy.name"
+        name="name"
+        required
+        #name="ngModel"
+      />
+      <div class="error-message" *ngIf="name.invalid && name.touched">
+        Name is required
+      </div>
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <input
+        id="description"
+        [(ngModel)]="policy.description"
+        name="description"
+        required
+        #description="ngModel"
+      />
+      <div
+        class="error-message"
+        *ngIf="description.invalid && description.touched"
+      >
+        Description is required
+      </div>
+    </div>
+    <button type="submit" [disabled]="createForm.invalid">Create Policy/Regulation</button>
+  </form>
+</div>

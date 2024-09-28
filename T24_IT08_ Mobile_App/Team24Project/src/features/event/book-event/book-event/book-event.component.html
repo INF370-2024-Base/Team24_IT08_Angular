@@ -1,0 +1,179 @@
+<!-- book-event.component.html -->
+<div class="book-event-container">
+  <h2>Create New Event</h2>
+  <button (click)="searchAvailability()">Search Availability</button>
+  <div class="calendar" *ngIf="showCalendar">
+    <app-calendar [unavailableDates]="flattenedUnavailableDates"></app-calendar>
+  </div>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        id="name"
+        [(ngModel)]="event.name"
+        name="name"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input
+        type="text"
+        id="description"
+        [(ngModel)]="event.description"
+        name="description"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="eventTypeId">Event Type</label>
+      <select id="eventTypeId" [(ngModel)]="event['eventTypeId']" name="eventTypeId" required (ngModelChange)="updateTotalPrice()">
+        <option *ngFor="let type of eventTypes" [value]="type['eventTypeId']">
+          {{ type.name }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="hallId">Hall</label>
+      <select id="hallId" [(ngModel)]="event.hallId" name="hallId" required>
+        <ng-container *ngFor="let hall of halls">
+          <option *ngIf="hall.availability" [value]="hall.hallID">
+            {{ hall.name }}
+          </option>
+        </ng-container>
+      </select>
+    </div>
+       <!-- Event Items -->
+       <label for="item">Event Items</label>
+       <div *ngFor="let item of eventItems">
+        <input
+          type="checkbox"
+          [(ngModel)]="item.selected"
+          (change)="updateTotalPrice()"
+          name="item_{{item.event_Items_ID}}"
+        />
+        <label>{{ item.name }} (Price: {{ item.price }})</label>
+        <input
+          type="number"
+          [(ngModel)]="item.quantity"
+          name="quantity_{{item.event_Items_ID}}"
+          placeholder="Quantity"
+          [disabled]="!item.selected"
+          (ngModelChange)="updateTotalPrice()"
+        />
+      </div>
+     <!-- Guest Email Input Field for Guest ID guests only Only -->
+     <div *ngIf="currentUserRole === 'Guest' && guestId" class="form-group">
+      <label for="guestEmail">Guest Email</label>
+      <input
+        type="email"
+        id="guestEmail"
+        [(ngModel)]="event['guestEmail']"
+        name="guestEmail"
+        [value]="guestEmail"
+        readonly
+      />
+    </div>
+   
+    <div class="form-group">
+      <label for="startTime">Start Time</label>
+      <input
+        type="datetime-local"
+        id="startTime"
+        [(ngModel)]="event.startTime"
+        name="startTime"
+        [min]="minDateTime"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="endTime">End Time</label>
+      <input
+        type="datetime-local"
+        id="endTime"
+        [(ngModel)]="event.endTime"
+        name="endTime"
+        [min]="event.startTime"
+        required
+      />
+    </div>
+  
+    <div class="form-group">
+      <label for="guestId">Guest</label>
+      <select id="guestId" [(ngModel)]="event['guestId']" name="guestId" required>
+        <option *ngFor="let guest of guests" [value]="guest.guestId">
+          {{ guest.name }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="noOfAttendees">Number of Attendees</label>
+      <input
+        type="number"
+        id="noOfAttendees"
+        [(ngModel)]="event['noOfAttendees']"
+        (ngModelChange)="onAttendeesChange($event)" 
+        name="noOfAttendees"
+        required
+      />
+    </div>
+      <!-- Staff Member Selection -->
+  <div class="form-group" *ngIf="currentUserRole === 'Staff'">
+    <label for="staffId">Assign Staff Member</label>
+    <select id="staffId" [(ngModel)]="event['staffId']" name="staffId">
+      <option *ngFor="let staff of staffMembers" [value]="staff.staffId">{{ staff.name }}</option>
+    </select>
+    </div>
+
+
+    <div class="form-group">
+      <label for="guestEmail">Guest Email</label>
+      <input
+        type="email"
+        id="guestEmail"
+        [(ngModel)]="event['guestEmail']"
+        name="guestEmail"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="guestPhone">Guest Phone</label>
+      <input
+        type="tel"
+        id="guestPhone"
+        [(ngModel)]="event['guestPhone']"
+        name="guestPhone"
+        required
+      />
+    </div>
+    <!-- Include Staff Drop Down List if a staff member is logged in -->
+    <!-- Price excluding VAT
+    Price including VAT -->
+    <div class="form-group">
+      <label for="priceExcludingVAT">Price (Excl. VAT)</label>
+      <div id="priceExcludingVAT" class="price-display">
+        {{ totalPrice / (1 + vatRate) | currency: 'ZAR' }}
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="vatAmount">VAT ({{ vatRate * 100 }}%)</label>
+      <div id="vatAmount" class="vat-display">
+        {{ totalPrice - (totalPrice / (1 + vatRate)) | currency: 'ZAR' }}
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="totalPrice">Total Price (Incl. VAT)</label>
+      <div id="totalPrice" class="total-price-display">
+        {{ totalPrice | currency: 'ZAR' }}
+      </div>
+    </div>
+    
+
+    <button type="submit">Book Event</button>
+    <button type="button" (click)="goBack()">Back</button>
+  </form>
+</div>

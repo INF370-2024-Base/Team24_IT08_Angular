@@ -1,0 +1,61 @@
+<!-- search-event-details.component.html -->
+<div class="search-event-details-container">
+  <div class="popup" id="popup-message">
+    ⚠️Please ensure you pay for your event 7 days before it happens⚠️
+  </div>
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    placeholder="Search events"
+    (input)="filterEvents()"
+  />
+  <button (click)="createNewEvent()">+Create A New Event</button>
+  <button (click)="goBack()">Back</button>
+
+  <button
+    *ngIf="currentUserRole === 'Admin'"
+    (click)="confirmDeleteEventHistory()"
+    class="delete-event-history-button"
+  >
+    Delete Event History
+  </button>
+  <div class="events-list">
+    <div *ngFor="let event of filteredEvents" class="event-card">
+      <div class="event-status">Status: {{ event['status'] }}</div>
+      <div class="event-actions">
+        <button
+          *ngIf="currentUserRole === 'Admin'"
+          (click)="updateEvent(event['event_ID'])"
+        >
+          Update
+        </button>
+        <button
+          *ngIf="currentUserRole === 'Admin'"
+          (click)="confirmDeleteEvent(event)"
+        >
+          Delete
+        </button>
+      </div>
+      <div class="event-name">{{ event.name }}</div>
+      <div class="event-time">
+        {{ event.startTime | date : "short" }}
+        <span
+          class="clock-icon"
+          title="{{ getDaysLeft(event.startTime) }} days left"
+        >
+          🕒
+        </span>
+      </div>
+      <div class="event-price">
+        R{{ event.totalPrice }}
+        
+        <button 
+  *ngIf="currentUserRole !== 'Admin' && currentUserRole !== 'Staff'" 
+  (click)="MakePayment(event)" 
+  [disabled]="event['isPaid']">
+  Make Payment
+</button>
+      </div>
+    </div>
+  </div>
+</div>

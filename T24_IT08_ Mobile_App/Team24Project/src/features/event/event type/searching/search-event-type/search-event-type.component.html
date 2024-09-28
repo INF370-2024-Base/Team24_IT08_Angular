@@ -1,0 +1,58 @@
+<div class="container">
+  <h1 class="heading">View Event Types</h1>
+  <div class="header">
+    <input
+      type="text"
+      placeholder="Search by name or standard rate"
+      [(ngModel)]="searchQuery"
+      (input)="searchEventTypes()"
+    />
+    <button
+      (click)="createNewEventType()"
+      class="btn btn-primary"
+      *ngIf="currentUserRole === 'Admin' || currentUserRole === 'Staff'"
+    >
+      Create A New Event Type
+    </button>
+    <button (click)="goBack()">Back</button>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Date Created</th>
+        <th>Is Active</th>
+        <th>Is Catered</th>
+        <th>Standard Rate</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let eventType of filteredEventTypes">
+        <td>{{ eventType.name }}</td>
+        <td>{{ eventType.description }}</td>
+        <td>{{ eventType.dateCreated | date : "shortDate" }}</td>
+        <td>{{ eventType.isActive ? "Yes" : "No" }}</td>
+        <td>{{ eventType.isCatered ? "Yes" : "No" }}</td>
+        <td>{{ eventType.standardRate }}</td>
+        <td>
+          <button
+            *ngIf="currentUserRole === 'Admin'"
+            (click)="updateEventType(eventType.eventTypeId)"
+          >
+            Update
+          </button>
+          <button
+            *ngIf="currentUserRole === 'Admin'"
+            (click)="deleteEventType(eventType.eventTypeId)"
+            class="btn btn-danger"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

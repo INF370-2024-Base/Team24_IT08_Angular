@@ -1,0 +1,17 @@
+<div class="payment-container">
+  <div class="payment-header">
+    <h2>Confirm Payment</h2>
+    <p>Total amount to pay: <span class="amount">$ {{ amount }}</span></p>
+  </div>
+
+  <div class="paypal-info">
+    <p class="warning-text">
+      Please do not refresh or navigate away from the browser while the transaction is processing.
+    </p>
+    <div #paymentRef class="paypal-buttons"></div>
+  </div>
+
+  <div class="action-buttons">
+    <button class="cancel-button" (click)="cancel()">Cancel Payment</button>
+  </div>
+</div>

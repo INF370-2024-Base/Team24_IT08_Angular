@@ -1,0 +1,22 @@
+<div class="inquiries-container">
+    <h2>Inquiries</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Message</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let inquiry of inquiries">
+          <td>{{ inquiry.fullName }}</td>
+          <td>{{ inquiry.email }}</td>
+          <td>{{ inquiry.message }}</td>
+          <td>{{ inquiry.date | date:'medium' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

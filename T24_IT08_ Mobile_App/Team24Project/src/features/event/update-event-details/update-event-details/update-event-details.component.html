@@ -1,0 +1,67 @@
+<div class="update-event-details-container">
+  <h2>Update Event Details</h2>
+  <form #eventForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        id="name"
+        [(ngModel)]="event.name"
+        name="name"
+        required
+        #nameModel="ngModel"
+      />
+      <div *ngIf="nameModel.invalid && nameModel.touched" class="text-danger">
+        Name is required.
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input
+        type="text"
+        id="description"
+        [(ngModel)]="event.description"
+        name="description"
+        required
+        #descriptionModel="ngModel"
+      />
+      <div *ngIf="descriptionModel.invalid && descriptionModel.touched" class="text-danger">
+        Description is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="hallId">Hall</label>
+      <select id="hallId" [(ngModel)]="event.hallId" name="hallId" required>
+        <ng-container *ngFor="let hall of halls">
+          <option *ngIf="hall.availability" [value]="hall.hallID">
+            {{ hall.name }}
+          </option>
+        </ng-container>
+      </select>
+    </div>
+    
+   <!-- Start Time as static text -->
+   <div class="form-group">
+    <label for="startTime">Start Time</label>
+    <div id="startTime">{{ event.startTime | date:'medium' }}</div>
+  </div>
+  
+  <!-- End Time as static text -->
+  <div class="form-group">
+    <label for="endTime">End Time</label>
+    <div id="endTime">{{ event.endTime | date:'medium' }}</div>
+  </div>
+  
+
+    <!-- Total Price displayed as static text -->
+    <div class="form-group total-price-display">
+      <label for="totalPrice">Total Price (Incl. VAT)</label>
+      <div id="totalPrice">{{ event.totalPrice | currency:'ZAR':'symbol' }}</div>
+    </div>
+
+    <button type="submit" [disabled]="eventForm.invalid">Update</button>
+    <button type="button" (click)="goBack()">Back</button>
+  </form>
+</div>
