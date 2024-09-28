@@ -124,7 +124,11 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+          "baseHref": "/",
+          "repo": "https://github.com/INF370-2024-Base/Team24_IT08_Angular.git"
+  }
         }
       }
     }
