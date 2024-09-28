@@ -26,131 +26,131 @@ interface GuestDetailsViewModel {
   styleUrl: './payment-for-event.component.scss',
 })
 export class PaymentForEventComponent {
-  amount: number = 0;
-  event_Id: number = 0; // Store the event booking ID
-  @ViewChild('paymentRef', { static: true }) paymentRef!: ElementRef;
+//   amount: number = 0;
+//   event_Id: number = 0; // Store the event booking ID
+//   @ViewChild('paymentRef', { static: true }) paymentRef!: ElementRef;
 
-  constructor(
-    private router: Router,
-    private payment: EventPaymentService,
-    private route: ActivatedRoute,
-    private eventService: EventService,
-    private http: HttpClient
-  ) {}
+//   constructor(
+//     private router: Router,
+//     private payment: EventPaymentService,
+//     private route: ActivatedRoute,
+//     private eventService: EventService,
+//     private http: HttpClient
+//   ) {}
 
-  ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      this.amount = +params['amount'];
-      this.event_Id = +params['event_Id']; // Get event booking ID from route params
-      console.log('Captured event_Id:', this.event_Id);
-    });
+//   ngOnInit(): void {
+//     this.route.params.subscribe((params) => {
+//       this.amount = +params['amount'];
+//       this.event_Id = +params['event_Id']; // Get event booking ID from route params
+//       console.log('Captured event_Id:', this.event_Id);
+//     });
 
-    this.initializePayPalButtons();
-  }
+//     this.initializePayPalButtons();
+//   }
 
-  cancel() {
-    this.router.navigate(['/search-event-details']);
-  }
+//   cancel() {
+//     this.router.navigate(['/search-event-details']);
+//   }
 
-  // Initialize PayPal Buttons
-  initializePayPalButtons() {
-    window.paypal
-      .Buttons({
-        style: {
-          layout: 'horizontal',
-          color: 'blue',
-          shape: 'rect',
-          label: 'paypal',
-        },
-        createOrder: (data: any, actions: any) => {
-          return actions.order.create({
-            purchase_units: [
-              {
-                amount: {
-                  value: this.amount.toString(),
-                  currency_code: 'USD',
-                },
-              },
-            ],
-          });
-        },
-        onApprove: (data: any, actions: any) => {
-          return actions.order.capture().then((details: any) => {
-            if (details.status === 'COMPLETED') { // 'COMPLETED' instead of 'PAID'
-              this.payment.transactionID = details.id;
-              const saleId = details.purchase_units[0].payments.captures[0].id;
-              console.log('Captured sale_id:', saleId);
-              this.handlePaymentSuccess(details, saleId);
-            }
-          });
-        },
-        onError: (error: any) => {
-          console.log(error);
-        },
-      })
-      .render(this.paymentRef.nativeElement);
-  }
+//   // Initialize PayPal Buttons
+//   initializePayPalButtons() {
+//     window.paypal
+//       .Buttons({
+//         style: {
+//           layout: 'horizontal',
+//           color: 'blue',
+//           shape: 'rect',
+//           label: 'paypal',
+//         },
+//         createOrder: (data: any, actions: any) => {
+//           return actions.order.create({
+//             purchase_units: [
+//               {
+//                 amount: {
+//                   value: this.amount.toString(),
+//                   currency_code: 'USD',
+//                 },
+//               },
+//             ],
+//           });
+//         },
+//         onApprove: (data: any, actions: any) => {
+//           return actions.order.capture().then((details: any) => {
+//             if (details.status === 'COMPLETED') { // 'COMPLETED' instead of 'PAID'
+//               this.payment.transactionID = details.id;
+//               const saleId = details.purchase_units[0].payments.captures[0].id;
+//               console.log('Captured sale_id:', saleId);
+//               this.handlePaymentSuccess(details, saleId);
+//             }
+//           });
+//         },
+//         onError: (error: any) => {
+//           console.log(error);
+//         },
+//       })
+//       .render(this.paymentRef.nativeElement);
+//   }
 
-  // Handle payment success
-  handlePaymentSuccess(details: any, saleId: string) {
-    const paymentMethod = details.payer.payment_method || 'PayPal'; // Default to PayPal if not specified
+//   // Handle payment success
+//   handlePaymentSuccess(details: any, saleId: string) {
+//     const paymentMethod = details.payer.payment_method || 'PayPal'; // Default to PayPal if not specified
     
-    this.savePayment(details, saleId, paymentMethod).subscribe(
-      () => {
+//     this.savePayment(details, saleId, paymentMethod).subscribe(
+//       () => {
 
-          // Store payment details in EventPaymentService
-      this.payment.totalAmount = this.amount * 20; // Or use the correct calculation
-      this.payment.transactionID = details.id;
-      this.payment.paymentDate = new Date().toISOString(); // Convert to ISO format
-      this.payment.paymentStatus = details.status;
-      this.payment.paymentMethod = paymentMethod;
-      this.payment.saleId = saleId;
+//           // Store payment details in EventPaymentService
+//       this.payment.totalAmount = this.amount * 20; // Or use the correct calculation
+//       this.payment.transactionID = details.id;
+//       this.payment.paymentDate = new Date().toISOString(); // Convert to ISO format
+//       this.payment.paymentStatus = details.status;
+//       this.payment.paymentMethod = paymentMethod;
+//       this.payment.saleId = saleId;
       
-        this.updateEventStatusToPaid().subscribe(
-          () => {
-            this.router.navigate(['/confirm']);
-            console.log('Captured sale_id during payment:', saleId);
-          },
-          (error: any) => {
-            console.error('Error updating event status to Paid', error);
-          }
-        );
-      },
-      (error: any) => {
-        console.error('Error saving payment', error);
-        alert('Error saving payment details');
-      }
-    );
-  }
+//         this.updateEventStatusToPaid().subscribe(
+//           () => {
+//             this.router.navigate(['/confirm']);
+//             console.log('Captured sale_id during payment:', saleId);
+//           },
+//           (error: any) => {
+//             console.error('Error updating event status to Paid', error);
+//           }
+//         );
+//       },
+//       (error: any) => {
+//         console.error('Error saving payment', error);
+//         alert('Error saving payment details');
+//       }
+//     );
+//   }
 
-  // Method to save payment details
-savePayment(details: any, saleId: string, paymentMethod: string): Observable<any> {
-  return this.eventService.getEventById(this.event_Id).pipe(
-    map(event => {
-      // Construct the payment payload
-      const payment: any = {
-        paymentID: 0, // Assuming the paymentID is generated by the backend
-        totalAmount: this.amount *20,
-        transactionID: details.id,
-        paymentDate: new Date().toISOString(), // Convert date to ISO string format
-        eventBookingID: this.event_Id,
-        guestID: event['guestID'] || null, // Retrieve guestID directly from the event
-        guestName: event['guestName'] || 'Unknown Guest', // Retrieve guestName directly from the event
-        paymentStatus: details.status,
-        paymentMethod: paymentMethod,
-        roomBookingID: event['roomBookingID'] || null, // Retrieve roomBookingID directly from the event
-        refundID: event['refundID'] || null, // Retrieve refundID directly from the event
-        saleId: saleId,
-      };
+//   // Method to save payment details
+// savePayment(details: any, saleId: string, paymentMethod: string): Observable<any> {
+//   return this.eventService.getEventById(this.event_Id).pipe(
+//     map(event => {
+//       // Construct the payment payload
+//       const payment: any = {
+//         paymentID: 0, // Assuming the paymentID is generated by the backend
+//         totalAmount: this.amount *20,
+//         transactionID: details.id,
+//         paymentDate: new Date().toISOString(), // Convert date to ISO string format
+//         eventBookingID: this.event_Id,
+//         guestID: event['guestID'] || null, // Retrieve guestID directly from the event
+//         guestName: event['guestName'] || 'Unknown Guest', // Retrieve guestName directly from the event
+//         paymentStatus: details.status,
+//         paymentMethod: paymentMethod,
+//         roomBookingID: event['roomBookingID'] || null, // Retrieve roomBookingID directly from the event
+//         refundID: event['refundID'] || null, // Retrieve refundID directly from the event
+//         saleId: saleId,
+//       };
 
-      console.log('Payment payload:', payment);
-      return payment;
-    }),
-    switchMap(payment => this.http.post('https://localhost:7102/api/Payments', payment))
-  );
-}
-  // Update the event status to 'Paid'
-  updateEventStatusToPaid(): Observable<any> {
-    return this.eventService.updateEventStatusToPaid(this.event_Id);
-  }
+//       console.log('Payment payload:', payment);
+//       return payment;
+//     }),
+//     switchMap(payment => this.http.post('https://localhost:7102/api/Payments', payment))
+//   );
+// }
+//   // Update the event status to 'Paid'
+//   updateEventStatusToPaid(): Observable<any> {
+//     return this.eventService.updateEventStatusToPaid(this.event_Id);
+//   }
 }
