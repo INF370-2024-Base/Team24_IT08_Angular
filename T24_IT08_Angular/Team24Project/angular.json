@@ -18,6 +18,22 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "docs",
+            "allowedCommonJsDependencies": [
+  "util",
+  "core-js",
+  "core-js/modules/es.promise.js",
+  "core-js/modules/es.string.match.js",
+  "core-js/modules/es.string.replace.js",
+  "canvg",
+  "raf",
+  "rgbcolor",
+  "file-saver",
+  "html2canvas",
+  "mammoth",
+  "jspdf-autotable",
+  "buffer",
+  "dompurify"
+],
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -47,13 +63,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "6000kB",
+                  "maximumError": "7000kb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumWarning": "5kB",
+                  "maximumError": "10kB"
                 }
               ],
               "outputHashing": "all"
