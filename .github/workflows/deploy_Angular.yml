@@ -45,7 +45,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload the built Angular app
-          path: 'dist/<your-angular-app-name>/' # Replace <your-angular-app-name>
+          path: 'dist/Team24Project' # Replace <your-angular-app-name>
 
       - name: Deploy to GitHub Pages
         id: deployment
