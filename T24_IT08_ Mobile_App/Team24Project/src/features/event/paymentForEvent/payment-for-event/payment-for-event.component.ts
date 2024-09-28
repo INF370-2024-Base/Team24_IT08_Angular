@@ -1,31 +1,31 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { EventPaymentService } from '../../../../services/event.payment.service';
-import {
-  EventService,
-  Event,
-  EventItem,
-  EventBooking,
-} from '../../../../services/event.service';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+// import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+// import { Router, ActivatedRoute } from '@angular/router';
+// import { EventPaymentService } from '../../../../services/event.payment.service';
+// import {
+//   EventService,
+//   Event,
+//   EventItem,
+//   EventBooking,
+// } from '../../../../services/event.service';
+// import { HttpClient } from '@angular/common/http';
+// import { Observable } from 'rxjs';
+// import { map, switchMap } from 'rxjs/operators';
 
-interface GuestDetailsViewModel {
-  GuestID: number | null;
-  guestName: string;
-  guestEmail: string;
-  guestPhone: string;
-}
+// interface GuestDetailsViewModel {
+//   GuestID: number | null;
+//   guestName: string;
+//   guestEmail: string;
+//   guestPhone: string;
+// }
 
-@Component({
-  selector: 'app-payment-for-event',
-  standalone: true,
-  imports: [],
-  templateUrl: './payment-for-event.component.html',
-  styleUrl: './payment-for-event.component.scss',
-})
-export class PaymentForEventComponent {
+// @Component({
+//   selector: 'app-payment-for-event',
+//   standalone: true,
+//   imports: [],
+//   templateUrl: './payment-for-event.component.html',
+//   styleUrl: './payment-for-event.component.scss',
+// })
+// export class PaymentForEventComponent {
 //   amount: number = 0;
 //   event_Id: number = 0; // Store the event booking ID
 //   @ViewChild('paymentRef', { static: true }) paymentRef!: ElementRef;
@@ -153,4 +153,4 @@ export class PaymentForEventComponent {
 //   updateEventStatusToPaid(): Observable<any> {
 //     return this.eventService.updateEventStatusToPaid(this.event_Id);
 //   }
-}
+// }

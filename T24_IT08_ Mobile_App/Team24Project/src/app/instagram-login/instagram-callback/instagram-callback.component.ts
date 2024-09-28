@@ -1,43 +1,43 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { LikeService } from '../../../services/LikeService';
+// import { Component, OnInit } from '@angular/core';
+// import { ActivatedRoute, Router } from '@angular/router';
+// import { HttpClient, HttpClientModule } from '@angular/common/http';
+// import { CommonModule } from '@angular/common';
+// import { FormsModule } from '@angular/forms';
+// import { LikeService } from '../../../services/LikeService';
 
-interface MediaResponse {
-  data: MediaItem[];
-}
+// interface MediaResponse {
+//   data: MediaItem[];
+// }
 
-interface CurrentUser {
-  Email: string;
-  token: string;
-  role?: string;
-}
+// interface CurrentUser {
+//   Email: string;
+//   token: string;
+//   role?: string;
+// }
 
-interface MediaItem {
-  id: string;
-  caption: string;
-  media_type: string;
-  media_url: string;
-  permalink: string;
-  likedByUser?: boolean;  // Optional property to track if the current user has liked the media
-}
+// interface MediaItem {
+//   id: string;
+//   caption: string;
+//   media_type: string;
+//   media_url: string;
+//   permalink: string;
+//   likedByUser?: boolean;  // Optional property to track if the current user has liked the media
+// }
 
-interface ProfileResponse {
-  id: string;
-  username: string;
-  profile_picture_url: string;
-}
+// interface ProfileResponse {
+//   id: string;
+//   username: string;
+//   profile_picture_url: string;
+// }
 
-@Component({
-  selector: 'app-instagram-callback',
-  standalone: true,
-  imports: [CommonModule,FormsModule,HttpClientModule],
-  templateUrl: './instagram-callback.component.html',
-  styleUrl: './instagram-callback.component.scss'
-})
-export class InstagramCallbackComponent implements OnInit{
+// @Component({
+//   selector: 'app-instagram-callback',
+//   standalone: true,
+//   imports: [CommonModule,FormsModule,HttpClientModule],
+//   templateUrl: './instagram-callback.component.html',
+//   styleUrl: './instagram-callback.component.scss'
+// })
+// export class InstagramCallbackComponent implements OnInit{
 
    // Declare the userProfile property here
 //    userProfile: ProfileResponse | null = null;
@@ -158,4 +158,4 @@ export class InstagramCallbackComponent implements OnInit{
 //   const media = this.userMedia.find(media => media.id === postId);
 //   return media ? media.likedByUser || false : false;
 // }
-}
+// }

@@ -68,7 +68,7 @@ import { SearchEventBookingComponent } from '../features/event/event-booking/sea
 import { UpdateEventBookingComponent } from '../features/event/event-booking/update-event-booking/update-event-booking.component';
 //EVENTS
 import { EventCartPageComponent } from '../features/event/event-cart-page/event-cart-page/event-cart-page.component';
-import { PaymentForEventComponent } from '../features/event/paymentForEvent/payment-for-event/payment-for-event.component';
+// import { PaymentForEventComponent } from '../features/event/paymentForEvent/payment-for-event/payment-for-event.component';
 import { ConfirmComponent } from '../features/event/confirm/confirm/confirm.component';
 import { CheckoutComponent } from '../features/event/client/checkout/checkout.component';
 import { SearchEventDetailsComponent } from '../features/event/search-event-details/search-event-details/search-event-details.component';
@@ -155,8 +155,8 @@ import { PaymentForRoomComponent } from '../BOOKAROOM/payment-for-room/payment-f
 import { RefundComponent } from '../features/refund/refund/refund.component';
 import { BookingRefundComponent } from '../BOOKAROOM/booking-refund/booking-refund.component';
 //INSTAGRAM
-import { InstagramCallbackComponent } from './instagram-login/instagram-callback/instagram-callback.component';
-import { InstagramLoginComponent } from './instagram-login/instagram-login.component';
+// import { InstagramCallbackComponent } from './instagram-login/instagram-callback/instagram-callback.component';
+// import { InstagramLoginComponent } from './instagram-login/instagram-login.component';
 import { RoomTypeManagementComponent } from '../features/room-type-management/room-type-management.component';
 
 
@@ -420,12 +420,12 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     data: { roles: ['Guest'] },
   },
-  {
-    path: 'payment-for-event/:amount/:event_Id',
-    component: PaymentForEventComponent,
-    canActivate: [AuthGuard],
-    data: { roles: ['Guest'] },
-  },
+  // {
+  //   path: 'payment-for-event/:amount/:event_Id',
+  //   component: PaymentForEventComponent,
+  //   canActivate: [AuthGuard],
+  //   data: { roles: ['Guest'] },
+  // },
   { path: 'confirm', component: ConfirmComponent },
   { path: 'checkout', component: CheckoutComponent },
   {
@@ -687,8 +687,8 @@ export const routes: Routes = [
       {path:'refund', component:RefundComponent,
         canActivate:[AuthGuard],data:{roles:['Guest']}
       },
-      { path: 'auth/callback', component: InstagramCallbackComponent },
-      { path: 'instagram-login', component: InstagramLoginComponent },
+      // { path: 'auth/callback', component: InstagramCallbackComponent },
+      // { path: 'instagram-login', component: InstagramLoginComponent },
 
   //Default route
   { path: '**', redirectTo: 'home' },
