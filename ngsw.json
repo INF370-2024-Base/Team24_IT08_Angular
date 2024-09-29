@@ -1,0 +1,135 @@
+{
+  "configVersion": 1,
+  "timestamp": 1727610819837,
+  "index": "/Team24_IT08_Angular/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/Team24_IT08_Angular/chunk-3ENMYILF.js",
+        "/Team24_IT08_Angular/chunk-5UNJUALS.js",
+        "/Team24_IT08_Angular/chunk-F4NWZUOT.js",
+        "/Team24_IT08_Angular/chunk-FKLPNMP3.js",
+        "/Team24_IT08_Angular/chunk-FVZJUPOX.js",
+        "/Team24_IT08_Angular/chunk-GROW7WIW.js",
+        "/Team24_IT08_Angular/chunk-TWZW5B45.js",
+        "/Team24_IT08_Angular/chunk-WNPMEEUK.js",
+        "/Team24_IT08_Angular/index.html",
+        "/Team24_IT08_Angular/main-5JUME6HF.js",
+        "/Team24_IT08_Angular/polyfills-FFHMD2TL.js",
+        "/Team24_IT08_Angular/styles-XVNYHZAG.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/Team24_IT08_Angular/assets/deluxe_suite.jpeg",
+        "/Team24_IT08_Angular/assets/double_room.jpeg",
+        "/Team24_IT08_Angular/assets/family_suite.jpeg",
+        "/Team24_IT08_Angular/assets/fonts/Roboto-Bold.woff",
+        "/Team24_IT08_Angular/assets/fonts/Roboto-Bold.woff2",
+        "/Team24_IT08_Angular/assets/fonts/Roboto-Regular.woff",
+        "/Team24_IT08_Angular/assets/fonts/Roboto-Regular.woff2",
+        "/Team24_IT08_Angular/assets/sfg_apt1.jpeg",
+        "/Team24_IT08_Angular/assets/sfg_apt2.jpeg",
+        "/Team24_IT08_Angular/assets/sfg_bathroom.jpeg",
+        "/Team24_IT08_Angular/assets/sfg_dining.jpeg",
+        "/Team24_IT08_Angular/assets/sfg_dining2.jpeg",
+        "/Team24_IT08_Angular/assets/sfg_front.jpeg",
+        "/Team24_IT08_Angular/assets/sfg_front2.jpeg",
+        "/Team24_IT08_Angular/assets/sfg_lobby.jpeg",
+        "/Team24_IT08_Angular/assets/sfg_lobby2.jpeg",
+        "/Team24_IT08_Angular/assets/sfg_logo.png",
+        "/Team24_IT08_Angular/assets/sfg_pool.jpeg",
+        "/Team24_IT08_Angular/assets/sfg_room1.jpeg",
+        "/Team24_IT08_Angular/assets/sfg_room2.jpeg",
+        "/Team24_IT08_Angular/assets/sfg_room3.jpeg",
+        "/Team24_IT08_Angular/assets/sfg_room5.jpeg",
+        "/Team24_IT08_Angular/assets/single_room.jpeg",
+        "/Team24_IT08_Angular/assets/sunflowerguesthouse_1-x_large.jpg",
+        "/Team24_IT08_Angular/media/color-727V6BA6.png",
+        "/Team24_IT08_Angular/media/hue-3YTJE6JS.png",
+        "/Team24_IT08_Angular/media/primeicons-4GST5W3O.woff2",
+        "/Team24_IT08_Angular/media/primeicons-DHQU4SEP.svg",
+        "/Team24_IT08_Angular/media/primeicons-GEFHGEHP.ttf",
+        "/Team24_IT08_Angular/media/primeicons-P53SE5CV.woff"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/Team24_IT08_Angular/assets/deluxe_suite.jpeg": "3dd6f023ac82d7d88c0b1d6f88379abb29006831",
+    "/Team24_IT08_Angular/assets/double_room.jpeg": "b2b249ef04f76b3ec800554222e5c5bdb6f50ee4",
+    "/Team24_IT08_Angular/assets/family_suite.jpeg": "9fc6ecced6d1d3e59e27772c18f0ef23fbba17f9",
+    "/Team24_IT08_Angular/assets/fonts/Roboto-Bold.woff": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+    "/Team24_IT08_Angular/assets/fonts/Roboto-Bold.woff2": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+    "/Team24_IT08_Angular/assets/fonts/Roboto-Regular.woff": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+    "/Team24_IT08_Angular/assets/fonts/Roboto-Regular.woff2": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+    "/Team24_IT08_Angular/assets/sfg_apt1.jpeg": "169b897b967030630129194d4c71764ac3d255a1",
+    "/Team24_IT08_Angular/assets/sfg_apt2.jpeg": "32ff81ad300420ca9ac998a18e63f9a083fcf86a",
+    "/Team24_IT08_Angular/assets/sfg_bathroom.jpeg": "d282f122d508731228206af23e7ba70e5f880816",
+    "/Team24_IT08_Angular/assets/sfg_dining.jpeg": "7ebb0eb69ec2503bf89b82b9ad026c42e2cc8e96",
+    "/Team24_IT08_Angular/assets/sfg_dining2.jpeg": "a39df45d2f2ef2e9bdc82a817c5fbc16a9f6afc8",
+    "/Team24_IT08_Angular/assets/sfg_front.jpeg": "68c5b3f7a4ea9d973117d7706b9351e0ccdcef5e",
+    "/Team24_IT08_Angular/assets/sfg_front2.jpeg": "160210e2149d1eb7749c8d05e5ecadcd6ac61348",
+    "/Team24_IT08_Angular/assets/sfg_lobby.jpeg": "eacd466ae617c9803cc97dcc6beee1bb0625246c",
+    "/Team24_IT08_Angular/assets/sfg_lobby2.jpeg": "41bbd6bdfed9cfb881369cd51910710131f39fa1",
+    "/Team24_IT08_Angular/assets/sfg_logo.png": "4b1af4b891bc7003f86c2f543d88c55dcff83877",
+    "/Team24_IT08_Angular/assets/sfg_pool.jpeg": "4c4c9da8aa36f8d46eccc2513a6bffae8e631631",
+    "/Team24_IT08_Angular/assets/sfg_room1.jpeg": "d4d165c59c87cdd70399b7ed01f27f93df494714",
+    "/Team24_IT08_Angular/assets/sfg_room2.jpeg": "cf686f332039016550ae2f0ecc977af77696c6a5",
+    "/Team24_IT08_Angular/assets/sfg_room3.jpeg": "27244578364764275d8dbec57661eddc18a3dd8d",
+    "/Team24_IT08_Angular/assets/sfg_room5.jpeg": "44e8ba1cb816c03047dcc1169e0f03f5563d3829",
+    "/Team24_IT08_Angular/assets/single_room.jpeg": "6c185d6f8fe79f1b9dd56482d43377ef9bfaa8c7",
+    "/Team24_IT08_Angular/assets/sunflowerguesthouse_1-x_large.jpg": "c93565bb8d239d5980ba87d023089678e9354458",
+    "/Team24_IT08_Angular/chunk-3ENMYILF.js": "abacb9c09bbc5639b1005bc56d4f3b52b990f7d9",
+    "/Team24_IT08_Angular/chunk-5UNJUALS.js": "5fc31b6fbe5175a6aaaa98dcecd5a4c2f0c77256",
+    "/Team24_IT08_Angular/chunk-F4NWZUOT.js": "9390c4df0f48b3594ae28d441c72a5154d10f7b5",
+    "/Team24_IT08_Angular/chunk-FKLPNMP3.js": "80793488e1f414e4a47b7e3cf5d45d479851353c",
+    "/Team24_IT08_Angular/chunk-FVZJUPOX.js": "fe5d5f2f56dfad6adf8f9a1f2ebc6bdbc4c8f799",
+    "/Team24_IT08_Angular/chunk-GROW7WIW.js": "cb7bbe35d370e76202ec84e937c6484c92f52c84",
+    "/Team24_IT08_Angular/chunk-TWZW5B45.js": "08bf566d05ea9be3f559aa202c06eca5bde05111",
+    "/Team24_IT08_Angular/chunk-WNPMEEUK.js": "77ce98500914a838b51910ed609da82ff2595419",
+    "/Team24_IT08_Angular/index.html": "2d6c0d034160ba09f1be011b5d91e10dce2653c8",
+    "/Team24_IT08_Angular/main-5JUME6HF.js": "dcb86489111747b286516d4106020afe01f59292",
+    "/Team24_IT08_Angular/media/color-727V6BA6.png": "c54e4eac0b6c88b9da8cfdf00b1d9093b828286b",
+    "/Team24_IT08_Angular/media/hue-3YTJE6JS.png": "ec215387067c733aed6649b96d8a81798a58b21b",
+    "/Team24_IT08_Angular/media/primeicons-4GST5W3O.woff2": "837c1279b6af9d297f34fdb43e6fcc9206a79f32",
+    "/Team24_IT08_Angular/media/primeicons-DHQU4SEP.svg": "a07ae39027c1a780b42fd82fad7575c2924d9d28",
+    "/Team24_IT08_Angular/media/primeicons-GEFHGEHP.ttf": "3b878ca7e88945a8ec25814810b95367d8977ae6",
+    "/Team24_IT08_Angular/media/primeicons-P53SE5CV.woff": "361e3af71bb4e515feead2f787348a92a5527158",
+    "/Team24_IT08_Angular/polyfills-FFHMD2TL.js": "f49b49a155bc7d192db62a4c15d0a612b460a667",
+    "/Team24_IT08_Angular/styles-XVNYHZAG.css": "9397cb9513cde5a3899328151bbc6b19fff0c10a"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
