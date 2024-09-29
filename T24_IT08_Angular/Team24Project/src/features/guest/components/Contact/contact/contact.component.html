@@ -1,0 +1,54 @@
+<div class="contact-us-container">
+  <div class="contact-info">
+    <h2>Contact Us</h2>
+    <p>Welcome to Sunflower Guesthouse! </p>
+    <p>How can we help you?</p>
+    <div class="info-item">
+      <i class="fas fa-home"></i>
+      <p>4671 Sugar Camp Road, Owatonna, Minnesota, 55060</p>
+    </div>
+    <div class="info-item">
+      <i class="fas fa-phone-alt"></i>
+      <p>+27 12 345 6789</p>
+    </div>
+    <div class="info-item">
+      <i class="fas fa-envelope"></i>
+      <p>SunflowerGuestHousegmail.com</p>
+    </div>
+  </div>
+  <div class="contact-form">
+    <h3>Send Message</h3>
+    <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+      <input 
+        type="text" 
+        placeholder="Full Name" 
+        required 
+        [(ngModel)]="contact.fullName" 
+        name="fullName" 
+        class="form-control"
+      />
+      <input 
+        type="email" 
+        placeholder="Email" 
+        required 
+        [(ngModel)]="contact.email" 
+        name="email" 
+        class="form-control"
+      />
+      <textarea 
+        placeholder="Type your Message..." 
+        required 
+        [(ngModel)]="contact.message" 
+        name="message" 
+        class="form-control"
+      ></textarea>
+      <button 
+        type="submit" 
+        [disabled]="!contactForm.form.valid" 
+        class="btn btn-primary mt-3"
+      >
+        Send
+      </button>
+    </form>
+  </div>
+</div>

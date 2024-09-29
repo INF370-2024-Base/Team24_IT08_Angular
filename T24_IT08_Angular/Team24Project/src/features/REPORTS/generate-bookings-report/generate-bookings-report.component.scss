@@ -1,0 +1,67 @@
+.booking-report {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    color: #f39c12;
+  }
+  
+  .search-bar {
+    margin-bottom: 10px;
+  }
+  
+  .search-bar input {
+    padding: 5px;
+    width: 300px;
+    
+  }
+  
+  .toggle-button {
+    margin-bottom: 20px;
+  }
+  
+  .booking-table {
+    width: 100%;
+    border-collapse: collapse;
+    //color:lightskyblue;
+  }
+  
+  .booking-table th,
+  .booking-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .booking-table th {
+    background-color: rgb(123, 81, 3);
+    color: white;
+  }
+  
+  .booking-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .booking-table tr:hover {
+    background-color: #ddd;
+  }
+  
+  .button {
+    color: #ffffff;
+    background-color:  #f39c12; /* Orange color for buttons */
+    margin-bottom: 20px;
+    padding-bottom: 0.9%;
+
+  
+  }
+  button {
+    color: #ffffff;
+    margin-top: 10px;
+    background-color:#fac570; /* Slightly darker orange on hover */
+    padding: 1px;
+  }
+  
+  button:hover {
+    background-color:#e49007; /* Slightly darker orange on hover */
+  
+  }

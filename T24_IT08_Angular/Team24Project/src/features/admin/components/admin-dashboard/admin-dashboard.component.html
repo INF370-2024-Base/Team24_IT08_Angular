@@ -1,0 +1,109 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" opened class="sidenav">
+    <mat-nav-list>
+
+        <mat-list-item routerLink="/admin-dashboard/:emailaddress" 
+        routerLinkActive="active-link">Admin Dashboard</mat-list-item>
+
+        <mat-list-item routerLink="/search-guest-profile" 
+        routerLinkActive="active-link">Search Guest Profiles</mat-list-item>
+  
+        <!-- Rooms Management -->
+        <mat-list-item routerLink="/room-management" routerLinkActive="active-link">
+          Room Management
+        </mat-list-item>
+        <mat-list-item routerLink="/room-type-mgmt" routerLinkActive="active-link">
+          Room Type Management
+        </mat-list-item>
+
+        <mat-list-item routerLink="/search-room-booking">Room Booking (1)</mat-list-item>
+       
+        <mat-list-item routerLink="/search-room-type">View Room Types</mat-list-item>
+        <!-- Room Booking (BOOKING TABLE) -->
+        <mat-list-item routerLink="/search-booking-details" routerLinkActive="active-link">
+          Official Room Bookings
+        </mat-list-item>
+        <!-- Event Management -->
+        <mat-list-item routerLink="/search-event-booking" routerLinkActive="active-link">
+          Event Booking Management
+        </mat-list-item>
+        <mat-list-item routerLink="/search-event-details">My Events</mat-list-item>
+        <mat-list-item routerLink="/search-event-categories">View Event Categories</mat-list-item>
+        <mat-list-item routerLink="/search-event-type">View Event Types</mat-list-item>
+        <mat-list-item routerLink="/search-event-items">View Event Items</mat-list-item>
+        <mat-list-item routerLink="/view-event-menus">View Event Menus</mat-list-item>
+        <mat-list-item routerLink="/view-event-menu-items">View Event Menu Items</mat-list-item>
+        <mat-list-item routerLink="/event-discount">Edit Discount</mat-list-item>
+        <mat-list-item routerLink="/search-hall">View Halls</mat-list-item>
+        <mat-list-item routerLink="/hall-list">Manage Hall Availability</mat-list-item>
+        <!-- Staff Management -->
+        <mat-list-item routerLink="/staff-shift" routerLinkActive="active-link">
+          Staff Management
+        </mat-list-item>
+        <mat-list-item routerLink="/admin/timer-settings">Configure Timer</mat-list-item>
+        <mat-list-item routerLink="/update-shift-assignment/:emailaddress">Notifications</mat-list-item>
+        <mat-list-item routerLink="/search-l-and-f-item/:emailaddress">Lost And Found List</mat-list-item>
+        <mat-list-item routerLink="/view-staff-profile/:emailaddress">View Staff Profiles</mat-list-item>
+        <!-- Guest Management -->
+        <mat-list-item routerLink="/guest-booking-list/:emailaddress" routerLinkActive="active-link">
+          Guest Management
+        </mat-list-item>
+        <!-- Inspection -->
+        <mat-list-item routerLink="/search-inspection" routerLinkActive="active-link">
+          Inspection
+        </mat-list-item>
+        <!-- FAQ -->
+        <mat-list-item routerLink="/faq-list" routerLinkActive="active-link">
+          FAQ Management
+        </mat-list-item>
+        <!-- Audit Log -->
+        <mat-list-item routerLink="/audit-log/:emailaddress" routerLinkActive="active-link">
+          Audit Log
+        </mat-list-item>
+        <mat-list-item routerLink="/staff-shift-report" routerLinkActive="active-link">
+          Staff shifts Report
+         </mat-list-item>
+         <mat-list-item routerLink="/staff-performance-review" routerLinkActive="active-link">
+          Staff Performance Review
+         </mat-list-item>
+        <mat-list-item routerLink="/event-report" routerLinkActive="active-link">
+         Events Report
+        </mat-list-item>
+        <mat-list-item routerLink="/inquiries" routerLinkActive="active-link">
+          Inquiries
+         </mat-list-item>
+         <mat-list-item routerLink="/view-shift-type" routerLinkActive="active-link">
+          Shift Type Management
+         </mat-list-item>
+         <mat-list-item routerLink="/video" routerLinkActive="active-link">
+          Video
+         </mat-list-item>
+         <mat-list-item routerLink="/qr-code-scanner" routerLinkActive="active-link">
+          QR scanner
+         </mat-list-item>
+         <mat-list-item [routerLink]="['/search-policies-and-regulations', email]" routerLinkActive="active-link">
+          Policies and Regulations
+        </mat-list-item>
+      <mat-list-item (click)="logout()">Logout</mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  
+  <mat-sidenav-content>
+
+      <router-outlet></router-outlet>
+
+      
+
+      <div class="dashboard-content">
+        <mat-list-item (click)="GenerateBookingsReport()">Generate Bookings Report</mat-list-item>
+        <!-- Button to navigate to register admin -->
+<button mat-button (click)="navigateToRegisterAdmin()">Register Admin</button>
+
+<!-- Button to navigate to register staff -->
+<button mat-button (click)="navigateToRegisterStaff()">Register Staff</button>
+      </div>
+      <app-booking-trends></app-booking-trends>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+       

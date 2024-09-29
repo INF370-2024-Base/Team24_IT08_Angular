@@ -1,0 +1,86 @@
+<div class="header" style="background-image: url('/assets/sfg_front2.jpeg'); background-size: cover; padding: 50px 20px; text-align: center; color: white;">
+  <h1>Frequently Asked Questions</h1>
+  <p>Get quick answers to your questions about Sunflower Guesthouse</p>
+
+  <!-- Help Document Menu -->
+  <mat-menu #helpMenu="matMenu">
+    <button 
+      mat-menu-item 
+      (click)="openHelpDocument('html')"
+      matTooltip="Open the HTML version of the help document"
+    >
+      Help (HTML)
+    </button>
+    <button 
+      mat-menu-item 
+      (click)="openHelpDocument('pdf')"
+      matTooltip="Open the PDF version of the help document"
+    >
+      Help (PDF)
+    </button>
+  </mat-menu>
+  <button 
+    mat-icon-button 
+    [matMenuTriggerFor]="helpMenu"
+    matTooltip="Open help menu"
+  >
+    <mat-icon>help_outline</mat-icon>
+  </button>
+
+  <!-- Search Bar -->
+  <mat-form-field class="search-bar" appearance="outline" matTooltip="Search for FAQs">
+    <mat-label>Search...</mat-label>
+    <input 
+      matInput 
+      [(ngModel)]="searchQuery" 
+      placeholder="Search..."
+      matTooltip="Enter your search query here"
+    >
+    <button 
+      mat-icon-button 
+      matSuffix 
+      *ngIf="searchQuery" 
+      (click)="clearSearch()"
+      matTooltip="Clear search query"
+    >
+      <mat-icon>clear</mat-icon>
+    </button>
+  </mat-form-field>
+  <button class="brochure-button" (click)="redirectToWix()">View Our Brochure</button>
+</div>
+
+<!-- Category Tabs -->
+<div class="category-tabs">
+  <button mat-button (click)="changeCategory('General')" [class.active]="selectedCategory === 'General'">General</button>
+  <button mat-button (click)="changeCategory('Booking')" [class.active]="selectedCategory === 'Booking'">Booking</button>
+  <button mat-button (click)="changeCategory('Check-in')" [class.active]="selectedCategory === 'Check-in'">Check-in</button>
+  <button mat-button (click)="changeCategory('Check-out')" [class.active]="selectedCategory === 'Check-out'">Check-out</button>
+  <button mat-button (click)="changeCategory('Navigation')" [class.active]="selectedCategory === 'Navigation'">Navigation</button>
+  <button mat-button (click)="changeCategory('Refund')" [class.active]="selectedCategory === 'Refund'">Refund</button>
+</div>
+
+<!-- FAQ Accordion -->
+<div class="faq-container">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let faq of filteredFaqs">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ faq.question }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>{{ faq.answer }}</p>
+      <!-- Video Section -->
+      <video *ngIf="faq.videoUrl" controls style="width: 300px; height: auto;">
+        <source [src]="faq.videoUrl" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <!-- Audio Section -->
+      <audio *ngIf="faq.audioUrl" controls>
+        <source [src]="faq.audioUrl" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+

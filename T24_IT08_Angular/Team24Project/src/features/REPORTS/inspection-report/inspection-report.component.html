@@ -1,0 +1,104 @@
+<div id="report-content">
+  <h1>Inspection Control Break Report</h1>
+
+  <label>
+    <input type="checkbox" [(ngModel)]="staffCheckbox" (change)="toggleGrouping()" />
+    Group by Staff
+  </label>
+  <label>
+    <input type="checkbox" [(ngModel)]="roomCheckbox" (change)="toggleGrouping()" />
+    Group by Room
+  </label>
+  <button (click)="downloadCSV()">Download the Report</button>
+  <button (click)="downloadPDF()">Download PDF Report</button>
+  <button (click)="goBack()">Back</button>
+  <h4>Current Month: {{ currentMonthName }}</h4>
+
+  <div *ngIf="staffCheckbox">
+    <div *ngFor="let staff of staffMembers">
+      <h2>{{ staff.name }}</h2>
+      <table *ngIf="groupedByStaff[staff.staffId]">
+        <tr>
+          <th>Status</th>
+          <th>Type</th>
+          <th>Room</th>
+          <th>Description</th>
+          <th>Date Created</th>
+          <th>Date Modified</th>
+        </tr>
+        <tr *ngFor="let inspection of groupedByStaff[staff.staffId]">
+          <td>{{ getInspectionStatusName(inspection.inspection_Status_ID)}}</td>
+          <td>{{ getInspectionTypeName(inspection.inspection_Type_ID) }}</td>
+          <td>{{ getRoomName(inspection.room_ID) }}</td>
+          <td>{{ inspection.description }}</td>
+          <td>{{ inspection.dateCreated | date: 'short' }}</td>
+          <td>{{ inspection.dateModified | date: 'short' }}</td>
+        </tr>
+      </table>
+      <p [ngClass]="{'highlight-red': getStaffInspectionsCount(staff.staffId) !== expectedTotalStaffInspections,
+      'highlight-green': getStaffInspectionsCount(staff.staffId) !== expectedTotalStaffInspections}">
+        Total Expected Inspections for {{ staff.name }}: {{  expectedTotalStaffInspections }}
+      </p>
+      <p>Total Inspections this month for {{ staff.name }}: {{ getStaffInspectionsCount(staff.staffId) }}</p>
+    </div>
+  </div>
+
+  <div *ngIf="roomCheckbox">
+    <div *ngFor="let room of rooms">
+      <h2>{{ room.name }}</h2>
+      <table *ngIf="groupedByRoom[room.room_ID]">
+        <tr>
+          <th>Status</th>
+          <th>Type</th>
+          <th>Staff</th>
+          <th>Description</th>
+          <th>Date Created</th>
+          <th>Date Modified</th>
+        </tr>
+        <tr *ngFor="let inspection of groupedByRoom[room.room_ID]">
+          <td>{{getInspectionStatusName(inspection.inspection_Status_ID)}}</td>
+          <td>{{ getInspectionTypeName(inspection.inspection_Type_ID) }}</td>
+          <td>{{ getStaffName(inspection.staffId) }}</td>
+          <td>{{ inspection.description }}</td>
+          <td>{{ inspection.dateCreated | date: 'short' }}</td>
+          <td>{{ inspection.dateModified | date: 'short' }}</td>
+        </tr>
+      </table>
+     
+      <p [ngClass]="{'highlight-red': getRoomInspectionsCount(room.room_ID) !== expectedTotalRoomInspections,
+      'highlight-green': getRoomInspectionsCount(room.room_ID) === expectedTotalRoomInspections}">
+        Total Expected Inspections for {{ room.name }}: {{ expectedTotalRoomInspections }}
+      </p>
+      <p>Total Inspections this month for {{ room.name }}: {{ getRoomInspectionsCount(room.room_ID) }}</p>
+    </div>
+  </div>
+
+  <div *ngIf="!staffCheckbox && !roomCheckbox">
+    <table>
+      <tr>
+        <th>Status</th>
+        <th>Type</th>
+        <th>Staff</th>
+        <th>Room</th>
+        <th>Description</th>
+        <th>Date Created</th>
+        <th>Date Modified</th>
+      </tr>
+      <tr *ngFor="let inspection of inspections">
+        <td>{{ getInspectionStatusName(inspection.inspection_Status_ID) }}</td>
+        <td>{{ getInspectionTypeName(inspection.inspection_Type_ID) }}</td>
+        <td>{{ getStaffName(inspection.staffId) }}</td>
+        <td>{{ getRoomName(inspection.room_ID) }}</td>
+        <td>{{ inspection.description }}</td>
+        <td>{{ inspection.dateCreated | date: 'short' }}</td>
+        <td>{{ inspection.dateModified | date: 'short' }}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div>
+    <h2>Summary</h2>
+    <p>Expected Total Inspections (Monthly): {{ expectedTotalInspections }}</p>
+    <p>Total Inspections: {{ totalInspections }}</p>
+  </div>
+</div>

@@ -1,0 +1,90 @@
+.booking-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #333;
+    }
+  
+    .form-group {
+      margin-bottom: 15px;
+  
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        font-size: 14px;
+        color: #555;
+      }
+  
+      input[type="text"],
+      input[type="email"],
+      input[type="date"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
+  
+      input[type="checkbox"] {
+        margin-right: 5px;
+      }
+    }
+  
+    .price-container {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 18px;
+      color: #333;
+  
+      strong {
+        color: #d32f2f;
+      }
+    }
+  
+    .calculate-price-btn,
+    .submit-btn {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #d32f2f;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: #b71c1c;
+      }
+  
+      &:disabled {
+        background-color: #e57373;
+        cursor: not-allowed;
+      }
+    }
+  
+    .error-message {
+      color: #d32f2f;
+      text-align: center;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  
+    .booking-success {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 18px;
+      color: #388e3c;
+    }
+  }
+  

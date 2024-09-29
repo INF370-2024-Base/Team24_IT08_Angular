@@ -1,0 +1,43 @@
+<div class="event-items-container">
+    <h1>Event Categories</h1>
+  
+    <div class="search-create-bar">
+      <input 
+        type="text" 
+        placeholder="Search by name or description" 
+        [(ngModel)]="searchTerm" 
+        (input)="filterEventCategories()" 
+      />
+      <button (click)="navigateToCreate()">Create A New Event Category</button>
+      <button type="button" (click)="goBack()">Back</button>
+    </div>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Date Created</th>
+          <th>Date Modified</th>
+          <th>Is Active</th>
+          <th>Is Deleted</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of filteredEventCategories">
+          <td>{{ item.name }}</td>
+          <td>{{ item.description }}</td>
+          <td>{{ item.dateCreated | date: 'short' }}</td>
+          <td>{{ item.dateModified | date: 'short' }}</td>
+          <td>{{ item.isActive ? 'Yes' : 'No' }}</td>
+          <td>{{ item.isDeleted ? 'Yes' : 'No' }}</td>
+          <td>
+            <button (click)="onUpdate(item)" class="update-button">Update</button>
+            <button (click)="onDelete(item.eventCategoryID)" class="delete-button">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

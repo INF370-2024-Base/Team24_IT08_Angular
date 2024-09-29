@@ -1,0 +1,32 @@
+<h1>Room Types</h1>
+<button mat-button (click)="addRoomType()">Add Room Type</button>
+
+<table mat-table [dataSource]="roomTypes" class="mat-elevation-z8">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let roomType">{{ roomType.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef="let roomType">{{ roomType.description }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="standardRate">
+    <th mat-header-cell *matHeaderCellDef>Standard Rate</th>
+    <td mat-cell *matCellDef="let roomType">{{ roomType.standardRate }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let roomType">
+      <button mat-button (click)="editRoomType(roomType)">Edit</button>
+      <button mat-button (click)="deleteRoomType(roomType.room_Type_ID)">Delete</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['name', 'description', 'standardRate', 'actions']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['name', 'description', 'standardRate', 'actions']"></tr>
+</table>
+
+<button  mat-button (click)="goBack()">Back</button>

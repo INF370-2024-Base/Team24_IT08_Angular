@@ -1,0 +1,79 @@
+/* inspection-report.component.scss */
+
+/* Background and text color */
+body {
+    background-color: #f5f5dc; /* Light beige background */
+    color: #5a3a29; /* Dark brown text */
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header */
+  h1 {
+    color: #6a4b3a; /* Darker brown */
+  }
+  
+  /* Labels and buttons */
+  label {
+    color: #6a4b3a; /* Darker brown */
+    margin-right: 15px;
+  }
+  
+  button {
+    background-color: #f5c542; /* Yellow */
+    color: #3a2c1e; /* Dark brown text */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #f4b927; /* Darker yellow on hover */
+  }
+  
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  th, td {
+    border: 1px solid #6a4b3a; /* Dark brown border */
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f5c542; /* Yellow background for headers */
+    color: #3a2c1e; /* Dark brown text */
+  }
+  
+  tr:nth-child(even) {
+    background-color: #e6dcb4; /* Light beige for even rows */
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #f5f5dc; /* Lighter beige for odd rows */
+  }
+  
+  tr:hover {
+    background-color: #d5b77e; /* Slightly darker beige on hover */
+  }
+  
+  /* Summary section */
+  div > h2 {
+    color: #6a4b3a; /* Darker brown */
+  }
+  
+  div > p {
+    color: #3a2c1e; /* Dark brown */
+  }
+  
+  .highlight-red {
+    color: red !important;
+  }
+  .highlight-green {
+    color: green;
+  }
+  

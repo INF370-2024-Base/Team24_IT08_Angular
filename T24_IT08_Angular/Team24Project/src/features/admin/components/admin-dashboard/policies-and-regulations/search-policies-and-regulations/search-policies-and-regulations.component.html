@@ -1,0 +1,58 @@
+<div>
+  
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Columns defined here -->
+    <ng-container matColumnDef="policy">
+      <th mat-header-cell *matHeaderCellDef>
+        Policy
+
+        <button
+          mat-button
+          type="button"
+          class="btn btn-link"
+          (click)="GoToCreatePolicyAndRegulationPage()"
+          [disabled]="!canCreate"
+        >
+          Create A New Policy/Regulation
+        </button>
+        <button mat-button (click)="goBack()">Back</button>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <span (click)="openPolicyDialog(element)" class="policy-name">
+          {{ element.name }}
+        </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          mat-button
+          *ngIf="canApprove && !element.isActive"
+          (click)="approvePolicy(element)"
+          [disabled]="!canApprove"
+        >
+          Approve
+        </button>
+        <button
+          mat-button
+          (click)="updatePolicy(element)"
+          [disabled]="!canUpdate"
+        >
+          Update
+        </button>
+        <button
+          mat-button
+          (click)="deletePolicy(element)"
+          [disabled]="!canDelete"
+        >
+          Delete
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

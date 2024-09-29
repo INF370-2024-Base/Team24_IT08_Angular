@@ -1,0 +1,41 @@
+<div class="register-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box" *ngIf="!isLoading">
+      <mat-card-header>
+        <mat-card-title>Admin Registration</mat-card-title>
+      </mat-card-header>
+      <form class="form" [formGroup]="registerFormGroup" (ngSubmit)="registerAdmin()">
+        <mat-card-content>
+          <!-- Email Field -->
+          <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Enter your email" formControlName="email" />
+          </mat-form-field>
+  
+          <!-- Password Field -->
+          <mat-form-field class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" placeholder="Enter your password" formControlName="password" />
+          </mat-form-field>
+  
+          <!-- Confirm Password Field -->
+          <mat-form-field class="full-width">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" placeholder="Confirm your password" formControlName="confirmPassword" />
+          </mat-form-field>
+
+            <!-- Add checkbox to enable 2FA -->
+        <mat-checkbox formControlName="enable2FA">Enable Two-Factor Authentication (2FA)</mat-checkbox>
+        
+        </mat-card-content>
+  
+        <!-- Register Button -->
+        <button mat-stroked-button color="primary" class="btn-block" type="submit">
+          Register as Admin
+        </button>
+      </form>
+    </mat-card>
+  
+    <!-- Loading Spinner -->
+    <mat-progress-spinner mode="indeterminate" value="50" *ngIf="isLoading" aria-label="Loading"></mat-progress-spinner>
+  </div>
+  

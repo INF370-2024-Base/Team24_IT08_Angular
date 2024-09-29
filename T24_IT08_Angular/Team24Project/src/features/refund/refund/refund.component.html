@@ -1,0 +1,33 @@
+<div class="refund-container">
+  <h1>Request Refund</h1>
+
+  <form (ngSubmit)="submitRefundRequest()">
+    <div class="form-group">
+      <label for="transactionID">Transaction ID</label>
+      <input type="text" id="transactionID" [(ngModel)]="transactionID" name="transactionID" required />
+    </div>
+
+    <div class="form-group">
+      <label for="reason">Reason for Refund</label>
+      <input type="text" id="reason" [(ngModel)]="refundReason" name="refundReason" required />
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+
+  <!-- Second Modal: Refund Summary -->
+  <div *ngIf="showRefundSummaryModal" class="modal">
+    <div class="modal-content">
+      <h2>Refund Summary</h2>
+      <p><strong>Refund ID:</strong> {{refundSummary.refundID}}</p>
+      <p><strong>Refund Amount:</strong> {{refundSummary.refundAmount}}</p>
+      <p><strong>Refund Date:</strong> {{ refundSummary.refundDate | date:'short' }}</p>
+      <p><strong>Reason:</strong> {{refundSummary.reason}}</p>
+      <p><strong>Is Approved:</strong> {{refundSummary.isApproved}}</p>
+      <button (click)="closeRefundSummaryModal()">Close</button>
+    </div>
+  </div>
+</div>

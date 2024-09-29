@@ -1,0 +1,63 @@
+<div class="booking-report">
+    <h1>Booking Report</h1>
+    <div class="search-bar">
+      <input
+        type="text"
+        placeholder="Search by name or description"
+        [(ngModel)]="searchTerm"
+        (input)="filterBookings()"
+      />
+    </div>
+
+    <div class="date-filter">
+        <label>Check In:</label>
+        <input type="datetime-local" [(ngModel)]="checkIn" (change)="filterBookings()" />
+        <label>Check Out:</label>
+        <input type="datetime-local" [(ngModel)]="checkOut" (change)="filterBookings()" />
+      </div>
+
+    <div class="toggle-button">
+      <label>
+        Paid?
+        <input type="checkbox" [(ngModel)]="showPaidOnly" (change)="filterBookings()" />
+      </label>     
+    </div>
+    <div class="button">
+      <button mat-button (click)="downloadCSV()">Download Report as CSV</button>
+      <button mat-button (click)="goBack()">Back</button>
+    </div>
+    
+    <table class="booking-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <!-- <th>Description</th> -->
+          <!-- <th>Date Created</th> -->
+          <!-- <th>Date Modified</th> -->
+          <!-- <th>Is Active</th>
+          <th>Room Total Price</th>
+          <th>Room Quantity</th> -->
+          <th>Check In Date</th>
+          <th>Check Out Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr *ngFor="let booking of filteredBookings">
+          <td>{{ booking.name }}</td>
+          <!-- <td>{{ booking.description }}</td>
+          <td>{{ booking.dateCreated | date: 'short'}}</td>
+          <td>{{ booking.dateModified | date:'short'}}</td> -->
+          <!-- <td>{{ booking.isActive }}</td> -->
+          <!-- <td>{{ booking.roomTotalPrice }}</td>
+          <td>{{ booking.roomQuantity }}</td>
+          <td>{{booking.name}}</td>
+          <td>{{ booking.checkIn | date:'short' }}</td>
+          <td>{{ booking.checkOut | date:'short' }}</td>
+          <!-- <td>{{ booking.status }}</td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

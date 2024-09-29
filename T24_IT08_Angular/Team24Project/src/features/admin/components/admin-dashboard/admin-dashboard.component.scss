@@ -1,0 +1,87 @@
+.sidenav-container {
+  height: 100vh;
+  background-color: white;
+}
+
+.sidenav {
+  width: 250px;
+  background-color: rgb(123, 81, 3);
+  padding: 1rem;
+}
+
+.mat-list-item {
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #d6d8db;
+  }
+}
+
+.mat-list-item.active-link {
+  background-color: white;
+  color:white;
+}
+
+.mat-sidenav-content {
+  padding: 20px;
+}
+
+.router-outlet {
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: white;
+}
+
+//dashbaord body
+.dashboard-content {
+  padding: 20px;
+
+}
+
+.dashboard-section {
+  margin-bottom: 40px;
+
+  h2 {
+    margin-bottom: 20px;
+    color: #f39c12;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+    color: #f39c12;
+  }
+
+  .room-occupancy-graph,
+  .booking-calendar {
+    height: 300px; /* Adjust as necessary */
+    background-color: #f1f1f1; /* Placeholder background */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #93600c;
+    font-size: 1.5em;
+  }
+}
+
+table {
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: rgb(150, 113, 45);
+}
+
+button[mat-button] {
+  display: block;
+  margin: 0 auto;
+  color: #ffffff;
+  background-color: #f39c12; /* Orange color for buttons */
+
+}
+
+button[mat-button]:hover {
+  background-color: #e49007; /* Slightly darker orange on hover */
+}

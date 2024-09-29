@@ -1,0 +1,64 @@
+<!-- search-booking-details.component.html -->
+<div class="search-booking-details-container">
+  <div class="popup" id="popup-message">
+    ⚠️Please ensure you have made an room booking first⚠️
+  </div>
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    placeholder="Search bookings"
+    (input)="filterBookings()"
+  />
+  
+  <button (click)="createNewBooking()">+Create A New Booking</button>
+
+  <button
+    *ngIf="currentUserRole === 'Admin'"
+    (click)="confirmDeleteBookingHistory()"
+    class="delete-booking-history-button"
+  >
+    Delete Booking History
+  </button>
+ 
+  <div class="bookings-list">
+    <div *ngFor="let booking of filteredBookings" class="bookimg-card">
+      <!-- <div class="booking-status">Status: {{ booking.status }}</div> -->
+      <div class="booking-actions">
+        <!-- <button
+          *ngIf="currentUserRole === 'Admin'"
+          (click)="updateBooking(booking.bookingID, booking.room_Items_ID)"
+        > -->
+          <!-- Update
+        </button> -->
+        <button
+          *ngIf="currentUserRole === 'Admin'"
+          (click)="confirmDeleteBooking(booking)"
+        >
+          Delete
+        </button>
+      </div>
+      <div class="booking-name">{{ booking.name }}</div>
+      <!-- <div class="booking-time">
+        {{ booking.startTime | date : "short" }}
+        <span
+          class="clock-icon"
+          title="{{ getDaysLeft(booking.startTime) }} days left"
+        >
+          🕒
+        </span>
+      </div> -->
+      <div class="booking-price">
+        R{{ booking.totalPrice }}
+        <button
+          (click)="MakePayment(booking)"
+        
+        >
+        <!-- [disabled]="booking.status === 'Paid'" -->
+          Make Payment
+        </button>
+      </div>
+    </div>
+  </div>
+  <button (click)="GenerateBookingsReport()">Generate Booking Report</button>
+  <button mat-button (click)="goBack()">Back</button>
+</div>

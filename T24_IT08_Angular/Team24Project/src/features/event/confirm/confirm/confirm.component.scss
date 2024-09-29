@@ -1,0 +1,28 @@
+/* confirm.component.scss */
+.confirm-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  background-color: #f0f0f0; /* Light grey background */
+}
+
+.confirm-card {
+  background: linear-gradient(
+    135deg,
+    #fff9c4,
+    #fff59d
+  ); /* Yellow and white gradient */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  text-align: center;
+  max-width: 400px; /* Maximum width for the card */
+  margin: 20px; /* Margin for spacing */
+}
+
+.confirm-card p {
+  margin: 10px 0; /* Spacing between paragraphs */
+  font-size: 1.2em; /* Larger font size */
+  color: #333; /* Dark text color */
+}

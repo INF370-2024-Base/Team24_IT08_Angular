@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let staff of staffMembers">
+      <div class="card mb-4">
+        <img
+          [src]="getImageUrl(staff.imageUrl)"
+          class="card-img-top"
+          alt="{{ staff.name }}'s image"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ staff.name }} {{ staff.surname }}</h5>
+          <p class="card-text">Date Of Birth: {{ staff.dateOfBirth | date }}</p>
+          <p class="card-text">Phone Number: {{ staff.phoneNumber }}</p>
+          <p class="card-text">Username: {{ getUserName(staff.userId) }}</p>
+          <p class="card-text">Role: {{ getRoleName(staff.staffRoleId) }}</p>
+          <p class="card-text">{{ staff.description }}</p>
+          <button
+            *ngIf="!staff.isActive"
+            class="btn btn-success"
+            (click)="approveStaff(staff)"
+          >
+            Approve
+          </button>
+          <button class="btn btn-danger" (click)="deleteStaff(staff)">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button (click)="goBack()">Back</button>
+
+</div>

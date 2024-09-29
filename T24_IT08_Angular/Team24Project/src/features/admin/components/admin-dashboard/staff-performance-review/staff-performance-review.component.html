@@ -1,0 +1,95 @@
+<mat-card>
+    <mat-card-title>Add Staff Performance Review</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="staffPerformanceForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+          <mat-label>Staff ID</mat-label>
+          <input matInput formControlName="staffId" type="number">
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Review Date</mat-label>
+          <input matInput formControlName="reviewDate" type="date">
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Comments</mat-label>
+          <textarea matInput formControlName="comments"></textarea>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Overall Rating</mat-label>
+          <input matInput formControlName="overallRating" type="number" step="0.1">
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Total Shifts Reviewed</mat-label>
+          <input matInput formControlName="totalShiftsReviewed" type="number">
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Total Events Reviewed</mat-label>
+          <input matInput formControlName="totalEventsReviewed" type="number">
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Total Room Bookings Reviewed</mat-label>
+          <input matInput formControlName="totalRoomBookingsReviewed" type="number">
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Met Expectations</mat-label>
+          <mat-select formControlName="metExpectations">
+            <mat-option [value]="true">Yes</mat-option>
+            <mat-option [value]="false">No</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Exceeded Expectations</mat-label>
+          <mat-select formControlName="exceededExpectations">
+            <mat-option [value]="true">Yes</mat-option>
+            <mat-option [value]="false">No</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Punctuality Score</mat-label>
+          <input matInput formControlName="punctualityScore" type="number">
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Quality of Work Score</mat-label>
+          <input matInput formControlName="qualityOfWorkScore" type="number">
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Customer Feedback Score</mat-label>
+          <input matInput formControlName="customerFeedbackScore" type="number">
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Teamwork Score</mat-label>
+          <input matInput formControlName="teamworkScore" type="number">
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Reviewer Name</mat-label>
+          <input matInput formControlName="reviewerName" type="text">
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+        <button mat-raised-button color="accent" (click)="downloadDocument()">Download as Word Document</button>
+        <button mat-raised-button color="warn" (click)="fileInput.click()">Import Word Document</button>
+        <input type="file" #fileInput style="display: none" (change)="importDocument($event)">
+        
+      </form>
+    </mat-card-content>
+  </mat-card>
+  
+  <div *ngIf="importedData">
+    <h2>Imported Data:</h2>
+    <pre>{{ importedData | json }}</pre>
+    <button (click)="goBack()">Back</button>
+  </div>
+  

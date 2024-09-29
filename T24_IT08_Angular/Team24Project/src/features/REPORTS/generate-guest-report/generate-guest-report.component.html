@@ -1,0 +1,33 @@
+<div class="search-container">
+    <h1> Guest Booking Report</h1>
+    <input type="text" placeholder="Search..." (input)="onSearch($event)" />
+    <button (click)="downloadCSV()">Download Report as CSV</button>
+    <button (click)="downloadPDF()">Download as PDF</button>
+    <button (click)="goBack()">Back</button>
+
+    <table #reportTable class="styled-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Date of Birth</th>
+          <th>Description</th>
+          <th>User Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let guest of filteredGuests">
+          <td>{{ guest.name }}</td>
+          <td>{{ guest.guest_Surname }}</td>
+          <td>{{ guest.guest_Email }}</td>
+          <td>{{ guest.guest_PhoneNo }}</td>
+          <td>{{ guest.dob | date }}</td>
+          <td>{{ guest.description }}</td>
+          <td>{{ getUserName(guest.userId || '')}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

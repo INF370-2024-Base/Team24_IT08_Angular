@@ -1,0 +1,48 @@
+<div class="container event-items-container">
+  <h1>Event Items</h1>
+
+  <div class="search-create-bar">
+    <input
+      type="text"
+      placeholder="Search by name or description"
+      [(ngModel)]="searchTerm"
+      (input)="filterEventItems()"
+    />
+    <button (click)="navigateToCreate()">Create A New Event Item</button>
+    <button (click)="goBack()">Back</button>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Date Created</th>
+          <th>Date Modified</th>
+          <th>Is Active</th>
+          <th>Is Deleted</th>
+          <th>Price</th>
+          <th>Event Type</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of filteredEventItems">
+          <td>{{ item.name }}</td>
+          <td>{{ item.description }}</td>
+          <td>{{ item.dateCreated | date: 'short' }}</td>
+          <td>{{ item.dateModified | date: 'short' }}</td>
+          <td>{{ item.isActive ? 'Yes' : 'No' }}</td>
+          <td>{{ item.isDeleted ? 'Yes' : 'No' }}</td>
+          <td>R{{ item.price }}</td>
+          <td>{{ getEventTypeName(item.eventTypeId) }}</td>
+          <td>
+            <button (click)="onUpdate(item)" class="update-button">Update</button>
+            <button (click)="onDelete(item.event_Items_ID)" class="delete-button">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

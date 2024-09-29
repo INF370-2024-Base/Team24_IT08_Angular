@@ -1,0 +1,158 @@
+<div class="container">
+  <form
+    [formGroup]="updateStaffForm"
+    (ngSubmit)="onSubmit()"
+    class="staff-form"
+  >
+    <h1>Update My Profile</h1>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input
+        id="name"
+        formControlName="name"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          updateStaffForm?.get('name')?.invalid &&
+          (updateStaffForm?.get('name')?.dirty ||
+            updateStaffForm?.get('name')?.touched)
+        "
+        class="alert alert-danger"
+      >
+        Name is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="surname">Surname:</label>
+      <input
+        id="surname"
+        formControlName="surname"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          updateStaffForm?.get('surname')?.invalid &&
+          (updateStaffForm?.get('surname')?.dirty ||
+            updateStaffForm?.get('surname')?.touched)
+        "
+        class="alert alert-danger"
+      >
+        Surname is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="dateOfBirth">Date of Birth:</label>
+      <input
+        id="dateOfBirth"
+        formControlName="dateOfBirth"
+        type="date"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          updateStaffForm?.get('dateOfBirth')?.invalid &&
+          (updateStaffForm?.get('dateOfBirth')?.dirty ||
+            updateStaffForm?.get('dateOfBirth')?.touched)
+        "
+        class="alert alert-danger"
+      >
+        Date of Birth is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input
+        id="phoneNumber"
+        formControlName="phoneNumber"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          updateStaffForm?.get('phoneNumber')?.invalid &&
+          (updateStaffForm?.get('phoneNumber')?.dirty ||
+            updateStaffForm?.get('phoneNumber')?.touched)
+        "
+        class="alert alert-danger"
+      >
+        Phone Number is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        id="email"
+        formControlName="email"
+        type="email"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          updateStaffForm?.get('email')?.invalid &&
+          (updateStaffForm?.get('email')?.dirty ||
+            updateStaffForm?.get('email')?.touched)
+        "
+        class="alert alert-danger"
+      >
+        Email is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="userName">Username:</label>
+      <input
+        id="userName"
+        formControlName="userName"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          updateStaffForm?.get('userName')?.invalid &&
+          (updateStaffForm?.get('userName')?.dirty ||
+            updateStaffForm?.get('userName')?.touched)
+        "
+        class="alert alert-danger"
+      >
+        Username is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea
+        id="description"
+        formControlName="description"
+        class="form-control"
+      ></textarea>
+      <div
+        *ngIf="
+          updateStaffForm?.get('description')?.invalid &&
+          (updateStaffForm?.get('description')?.dirty ||
+            updateStaffForm?.get('description')?.touched)
+        "
+        class="alert alert-danger"
+      >
+        Description is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="image">Image:</label>
+      <input
+        id="image"
+        formControlName="image"
+        type="file"
+        class="form-control-file"
+        (change)="onImageChange($event)"
+      />
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="updateStaffForm.invalid"
+    >
+      Update Profile
+    </button>
+  </form>
+</div>
