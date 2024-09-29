@@ -17,26 +17,25 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/Team24Project",
-
-            "allowedCommonJsDependencies": [
-  "util",
-  "core-js",
-  "core-js/modules/es.promise.js",
-  "core-js/modules/es.string.match.js",
-  "core-js/modules/es.string.replace.js",
-  "canvg",
-  "raf",
-  "rgbcolor",
-  "file-saver",
-  "html2canvas",
-  "mammoth",
-  "jspdf-autotable",
-  "buffer",
-  "dompurify"
-],
+            "outputPath": "dist/team24-project",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "allowedCommonJsDependencies": [
+              "util",
+              "core-js",
+              "core-js/modules/es.promise.js",
+              "core-js/modules/es.string.match.js",
+              "core-js/modules/es.string.replace.js",
+              "canvg",
+              "raf",
+              "rgbcolor",
+              "file-saver",
+              "html2canvas",
+              "mammoth",
+              "jspdf-autotable",
+              "buffer",
+              "dompurify"
+            ],
             "polyfills": [
               "zone.js"
             ],
