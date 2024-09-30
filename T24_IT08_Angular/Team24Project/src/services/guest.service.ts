@@ -65,7 +65,7 @@ export interface GuestInService {
 export class GuestService {
   private apiUrl = `${environment.apiUrl}Guest`;
   private piUrl = `${environment.apiUrl}Feedback`;
-  private apiUrl3 = '${environment.apiUrl}';
+  private apiUrl3 = `${environment.apiUrl}`;
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
