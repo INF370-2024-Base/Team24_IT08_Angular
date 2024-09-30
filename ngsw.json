@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1727610819837,
+  "timestamp": 1727717113845,
   "index": "/Team24_IT08_Angular/index.html",
   "assetGroups": [
     {
@@ -20,7 +20,7 @@
         "/Team24_IT08_Angular/chunk-TWZW5B45.js",
         "/Team24_IT08_Angular/chunk-WNPMEEUK.js",
         "/Team24_IT08_Angular/index.html",
-        "/Team24_IT08_Angular/main-5JUME6HF.js",
+        "/Team24_IT08_Angular/main-Z3O6LF4T.js",
         "/Team24_IT08_Angular/polyfills-FFHMD2TL.js",
         "/Team24_IT08_Angular/styles-XVNYHZAG.css"
       ],
@@ -102,8 +102,8 @@
     "/Team24_IT08_Angular/chunk-GROW7WIW.js": "cb7bbe35d370e76202ec84e937c6484c92f52c84",
     "/Team24_IT08_Angular/chunk-TWZW5B45.js": "08bf566d05ea9be3f559aa202c06eca5bde05111",
     "/Team24_IT08_Angular/chunk-WNPMEEUK.js": "77ce98500914a838b51910ed609da82ff2595419",
-    "/Team24_IT08_Angular/index.html": "2d6c0d034160ba09f1be011b5d91e10dce2653c8",
-    "/Team24_IT08_Angular/main-5JUME6HF.js": "dcb86489111747b286516d4106020afe01f59292",
+    "/Team24_IT08_Angular/index.html": "126212b471ba65971e5c14697b3ce0e0a5c02cc5",
+    "/Team24_IT08_Angular/main-Z3O6LF4T.js": "cf3fef53ca102af695b35599858940cd1bf69fab",
     "/Team24_IT08_Angular/media/color-727V6BA6.png": "c54e4eac0b6c88b9da8cfdf00b1d9093b828286b",
     "/Team24_IT08_Angular/media/hue-3YTJE6JS.png": "ec215387067c733aed6649b96d8a81798a58b21b",
     "/Team24_IT08_Angular/media/primeicons-4GST5W3O.woff2": "837c1279b6af9d297f34fdb43e6fcc9206a79f32",
