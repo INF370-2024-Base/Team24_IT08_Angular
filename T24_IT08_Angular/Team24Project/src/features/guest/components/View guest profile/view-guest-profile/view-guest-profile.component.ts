@@ -14,7 +14,7 @@ import { GuestInService } from '../../../../../services/guest.service';
 export class ViewGuestProfileComponent implements OnInit {
   guest!: GuestInService | null;
   errorMessage: string = '';
-  emailaddress!: string;
+  Email !: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,20 +24,23 @@ export class ViewGuestProfileComponent implements OnInit {
 
   ngOnInit() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
-    this.emailaddress = currentUser.emailaddress;
+  console.log('Current User:', currentUser);
+  this.Email  = currentUser.Email ;
+  console.log('Email Address:', this.Email );
 
-    if (this.emailaddress) {
-      this.guestService.getGuestByEmail(this.emailaddress).subscribe(
-        (guest: any) => {
-          this.guest = guest;
-        },
-        error => {
-          console.error('Error fetching guest profile', error);
-        }
-      );
-    } else {
-      console.error('User email not found in local storage');
-    }
+  if (this.Email ) {
+    this.guestService.getGuestByEmail(this.Email ).subscribe(
+      (guest: any) => {
+        this.guest = guest;
+      },
+      error => {
+        console.error('Error fetching guest profile', error);
+      }
+    );
+  } else {
+    this.errorMessage = 'User email not found in local storage';
+    console.error(this.errorMessage);
+  }
   }
 
 
@@ -47,9 +50,15 @@ export class ViewGuestProfileComponent implements OnInit {
     }
   }
 
+ navigateToCreate(): void {
+   
+      this.router.navigate([`/create-guest-profile`]);
+    
+  }
+
   deleteProfile(): void {
-    if (this.emailaddress) {
-      this.guestService.deleteGuestByEmail(this.emailaddress).subscribe(
+    if (this.Email ) {
+      this.guestService.deleteGuestByEmail(this.Email ).subscribe(
         () => {
           console.log('Guest deleted successfully');
           this.router.navigate(['/create-guest-profile']); // Adjust redirection as needed
@@ -59,6 +68,23 @@ export class ViewGuestProfileComponent implements OnInit {
           this.errorMessage = 'Error deleting guest profile';
         }
       );
+    }
+  }
+
+  goBack() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    const role = currentUser.role;
+    const emailaddress = currentUser.emailaddress;
+  
+    if (role === 'Admin') {
+      this.router.navigate([`/admin-dashboard/${emailaddress}`]);
+    } else if (role === 'Staff') {
+      this.router.navigate([`/staff-dashboard/${emailaddress}`]);
+    } else if (role === 'Guest') {
+      this.router.navigate([`/guest-dashboard/${emailaddress}`]);
+    } else {
+      console.error('Unknown role:', role);
+      this.router.navigate(['/']); // Default route or error page
     }
   }
 }

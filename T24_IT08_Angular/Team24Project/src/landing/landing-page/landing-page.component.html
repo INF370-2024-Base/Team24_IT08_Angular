@@ -56,7 +56,24 @@
   <div class="contact-section">
     <h2>Contact Us</h2>
     <p>For inquiries and reservations, please reach out to us:</p>
-    <p>Email: <a href="mailto:infosunflowerguesthouse.co.za">infosunflowerguesthouse.co.za</a></p>
-    <p>Phone: <a href="tel:+27123456789">+27 12 345 6789</a></p>
+    <p >Email: <a href="mailto:infosunflowerguesthouse.co.za" style="color: black;">infosunflowerguesthouse.co.za</a></p>
+    <p>Phone: <a href="tel:+27123456789" style="color: black;">+27 12 345 6789</a></p>
   </div>
 </div>
+
+<!-- Guest Feedback Section -->
+<div class="feedback-section">
+  <h2>What Our Guests Are Saying</h2>
+  <div class="feedback-carousel">
+    <div class="feedback-card" *ngFor="let feedback of guestFeedbacks">
+      <div class="feedback-content">
+        <p class="feedback-text">"{{ feedback.comments }}"</p>
+        <div class="feedback-rating">
+          <span *ngFor="let star of getStars(feedback.rating)">&#9733;</span>
+        </div>
+        <p class="feedback-date">{{ feedback.submittedAt | date: 'longDate' }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+

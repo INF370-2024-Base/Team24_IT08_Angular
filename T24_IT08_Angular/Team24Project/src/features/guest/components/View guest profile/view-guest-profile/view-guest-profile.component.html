@@ -1,5 +1,6 @@
 <div class="container">
   <h1 class="heading">Guest Profile</h1>
+  <button class="create-guest" type="button" (click)="navigateToCreate()">Create Guest Profile</button>
   <div *ngIf="guest; else errorContent">
     <p class="greeting">Hello {{ guest.name }} {{ guest.guest_Surname }}, welcome to Sunflower Guesthouse!</p>
     <table>
@@ -34,4 +35,6 @@
   <ng-template #errorContent>
     <p>{{ errorMessage }}</p>
   </ng-template>
+  <button class="back-button" type="button" (click)="goBack()"
+      title="Return to the dashboard">Back</button>
 </div>

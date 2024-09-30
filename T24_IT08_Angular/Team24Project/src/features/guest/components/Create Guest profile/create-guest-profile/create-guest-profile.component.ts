@@ -55,7 +55,7 @@ export class CreateGuestProfileComponent implements OnInit {
           next: response => {
             alert('Guest added successfully');
             console.log('Guest added successfully', response);
-            this.router.navigate(['/view-guest-profile']); // Navigate to the view guest profile page
+            this.router.navigate(['/view-guest-profile/{{ Email }}']); // Navigate to the view guest profile page
           },
           error: err => {
             alert('Error adding guest');
@@ -103,5 +103,23 @@ export class CreateGuestProfileComponent implements OnInit {
         });
       });
     }
+
+    goBack() {
+      const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+      const role = currentUser.role;
+      const emailaddress = currentUser.emailaddress;
+    
+      if (role === 'Admin') {
+        this.router.navigate([`/admin-dashboard/${emailaddress}`]);
+      } else if (role === 'Staff') {
+        this.router.navigate([`/staff-dashboard/${emailaddress}`]);
+      } else if (role === 'Guest') {
+        this.router.navigate([`/guest-dashboard/${emailaddress}`]);
+      } else {
+        console.error('Unknown role:', role);
+        this.router.navigate(['/']); // Default route or error page
+      }
+    }
   }
+  
   

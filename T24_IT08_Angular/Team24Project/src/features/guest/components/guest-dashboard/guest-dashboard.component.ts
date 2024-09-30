@@ -11,13 +11,13 @@ import { RouterModule } from '@angular/router';
   styleUrl: './guest-dashboard.component.scss'
 })
 export class GuestDashboardComponent implements OnInit {
-  emailaddress!: string;
+  Email !: string;
   constructor(private router: Router) {}
 
   ngOnInit(): void {
     // Assuming the email address is retrieved from local storage or a similar method
     const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
-    this.emailaddress = currentUser.emailaddress;
+    this.Email  = currentUser.Email ;
   }
   logout() {
     // Implement your logout logic here

@@ -5,7 +5,8 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../shared/components/material.module';
 import { ApiService } from '../../services/api.service';
 import { RoomService, Room } from '../../services/room.service';
-
+import { FeedbackService } from '../../services/feedback.service'; // Import the FeedbackService
+import { Feedback } from '../../services/guest.service';
 @Component({
   selector: 'app-landing-page',
   standalone: true,
@@ -16,17 +17,39 @@ import { RoomService, Room } from '../../services/room.service';
 export class LandingPageComponent implements OnInit, AfterViewInit {
   rooms: Room[] = [];
   errorMessage: string = '';
+  guestFeedbacks: Feedback[] = [
+    // Prepopulated feedback for aesthetics
+    { feedbackId: 1, guestId: 101, rating: 5, comments: 'Fantastic experience, will visit again!', submittedAt: new Date() },
+    { feedbackId: 2, guestId: 102, rating: 4, comments: 'Beautiful place and great service!', submittedAt: new Date() },
+    { feedbackId: 3, guestId: 103, rating: 5, comments: 'Highly recommend Sunflower Guesthouse.', submittedAt: new Date() },
+    { feedbackId: 4, guestId: 104, rating: 4, comments: 'Cozy rooms and friendly staff.', submittedAt: new Date() }
+  ]; 
 
-  constructor(private roomService: RoomService) {}
+  constructor(private roomService: RoomService,private feedbackService: FeedbackService ) {}
 
   ngOnInit(): void {
     this.loadRooms();
+    this.getGuestFeedbacks(); 
   }
 
   ngAfterViewInit(): void {
     this.initializeSlider();
   }
 
+  getGuestFeedbacks(): void {
+    this.feedbackService.getAllFeedback().subscribe(
+      (feedbacks: Feedback[]) => {
+        this.guestFeedbacks = feedbacks; // Assign the fetched feedback to guestFeedbacks array
+      },
+      (error) => {
+        console.error('Error fetching feedback:', error); // Log any errors
+      }
+    );
+  }
+
+  getStars(rating: number): Array<number> {
+    return Array(rating).fill(1); // Generate an array of stars based on the rating
+  }
   loadRooms(): void {
     this.roomService.getRooms().subscribe(
       (data: Room[]) => {
