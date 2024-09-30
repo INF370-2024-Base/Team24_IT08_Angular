@@ -1,23 +1,25 @@
 <mat-toolbar class="toolbar">
   <span class="title">Profile</span>
   <span class="spacer"></span>
-  <p>{{ Email }}</p>
+  <p>{{ emailaddress }}</p>
 </mat-toolbar>
 
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #sidenav mode="side" opened class="sidenav">
     <mat-nav-list>
-      <mat-list-item routerLink="/view-guest-profile/{{ Email }}" routerLinkActive="active-link">
+      <mat-list-item routerLink="/view-guest-profile/{{ emailaddress }}" routerLinkActive="active-link">
         Guest Profile
       </mat-list-item>
       <mat-list-item routerLink="/create-guest-profile" routerLinkActive="active-link">
         Create Guest Profile
       </mat-list-item>
-    
+      <mat-list-item routerLink="/guest-booking-list/{{ emailaddress }}" routerLinkActive="active-link">
+        Guest Room Bookings
+      </mat-list-item>
       <mat-list-item routerLink="/search-room-booking" routerLinkActive="active-link">
         Room Bookings
       </mat-list-item>
-      <mat-list-item routerLink="/booking-cart-page/{{ Email }}" routerLinkActive="active-link">
+      <mat-list-item routerLink="/booking-cart-page/{{ emailaddress }}" routerLinkActive="active-link">
         Pay for Bookings
       </mat-list-item>
       <mat-list-item routerLink="/search-room-type" routerLinkActive="active-link">
@@ -29,7 +31,7 @@
       <mat-list-item routerLink="/search-event-details" routerLinkActive="active-link">
         My Events
       </mat-list-item>
-      <!-- <mat-list-item routerLink="/event-cart-page/{{ Email }}" routerLinkActive="active-link">
+      <!-- <mat-list-item routerLink="/event-cart-page/{{ emailaddress }}" routerLinkActive="active-link">
         Pay for Event/s
       </mat-list-item> -->
       <mat-list-item routerLink="/refund" routerLinkActive="active-link">
@@ -50,7 +52,7 @@
       <mat-list-item routerLink="/feedback-form" routerLinkActive="active-link">
         feedback Form
       </mat-list-item>
-      <mat-list-item routerLink="/payment/{{ Email }}" routerLinkActive="active-link">
+      <mat-list-item routerLink="/payment/{{ emailaddress }}" routerLinkActive="active-link">
         Payment
       </mat-list-item>
       <mat-list-item routerLink="/guest-qr-code" routerLinkActive="active-link">
@@ -59,7 +61,7 @@
       <mat-list-item routerLink="/change-password" routerLinkActive="active-link">
         Change Password
       </mat-list-item>
-      <mat-list-item [routerLink]="['/search-policies-and-regulations', Email]" routerLinkActive="active-link">
+      <mat-list-item [routerLink]="['/search-policies-and-regulations', emailaddress]" routerLinkActive="active-link">
         Policies and Regulations
       </mat-list-item>
       <mat-list-item (click)="logout()">
@@ -72,10 +74,10 @@
     <router-outlet></router-outlet>
     <div class="dashboard-container">
       <div class="cards-container">
-        <mat-card class="card" routerLink="/view-guest-profile/{{ Email }}" routerLinkActive="active-card">
+        <mat-card class="card" routerLink="/view-guest-profile/{{ emailaddress }}" routerLinkActive="active-card">
           <mat-card-title>Guest Profile</mat-card-title>
         </mat-card>
-        <mat-card class="card" routerLink="/payment/{{ Email }}" routerLinkActive="active-card">
+        <mat-card class="card" routerLink="/payment/{{ emailaddress }}" routerLinkActive="active-card">
           <mat-card-title>Payment Details</mat-card-title>
         </mat-card>
         <mat-card class="card" routerLink="/faq" routerLinkActive="active-card">
