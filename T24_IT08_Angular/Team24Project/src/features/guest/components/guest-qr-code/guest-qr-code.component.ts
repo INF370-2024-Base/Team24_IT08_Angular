@@ -3,6 +3,7 @@ import { GuestService } from '../../../../services/guest.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../environments/environments';
 
 @Component({
   selector: 'app-guest-qr-code',
@@ -26,7 +27,7 @@ export class GuestQrCodeComponent implements OnInit {
    
     if (emailaddress) {
       // Fetch guestId based on emailaddress as a path parameter
-      this.http.get<any>(`https://localhost:7102/api/Guest/GetGuestByEmail/${encodeURIComponent(emailaddress)}`)
+      this.http.get<any>(`${environment.apiUrl}Guest/GetGuestByEmail/${encodeURIComponent(emailaddress)}`)
         .subscribe(guest => {
           this.guestId = guest.guestId; // Extract guestId from the returned object
           this.generateQrCode(frontendBaseUrl);

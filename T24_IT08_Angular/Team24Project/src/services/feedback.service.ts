@@ -7,7 +7,7 @@ import { Feedback } from './guest.service'; // Import Feedback model
   providedIn: 'root'
 })
 export class FeedbackService {
-  private apiUrl = 'https://localhost:7102/api/Feedback'; // Adjust with your API URL
+  private apiUrl = '${environment.apiUrl}Feedback'; // Adjust with your API URL
 
   constructor(private http: HttpClient) {}
 

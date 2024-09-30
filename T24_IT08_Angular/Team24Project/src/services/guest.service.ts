@@ -65,7 +65,7 @@ export interface GuestInService {
 export class GuestService {
   private apiUrl = `${environment.apiUrl}Guest`;
   private piUrl = `${environment.apiUrl}Feedback`;
-  private apiUrl3 = 'https://localhost:7102/api';
+  private apiUrl3 = '${environment.apiUrl}';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -139,12 +139,12 @@ submitFeedback(feedback: Feedback): Observable<FeedbackResponse> {
   }
   getUserRoles(email: string): Observable<string> {
     return this.http
-      .get<{ role: string }>(`${this.apiUrl3}/Auth/GetUserRole?email=${email}`)
+      .get<{ role: string }>(`${this.apiUrl3}Auth/GetUserRole?email=${email}`)
       .pipe(map((response) => response.role));
   }
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.apiUrl3}/Auth/Users`);
+    return this.http.get<User[]>(`${this.apiUrl3}Auth/Users`);
   }
 
   getGuestByEmail(email: string): Observable<any> {
