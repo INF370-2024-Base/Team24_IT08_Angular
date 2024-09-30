@@ -283,7 +283,7 @@ export const routes: Routes = [
   },
 
   {
-    path: 'view-guest-profile/:emailaddress',
+    path: 'view-guest-profile/:Email',
     component: ViewGuestProfileComponent,
     canActivate: [AuthGuard],
     data: { roles: ['Admin', 'Guest'] },
